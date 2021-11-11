@@ -11,4 +11,8 @@ public class DistanceMeasures {
         }
         return sum;
     }
+
+    public static double CanberraDistance(Double graphOne, Double graphTwo) {
+        return Math.abs(graphOne - graphTwo) / (Math.abs(graphOne) + Math.abs(graphTwo));
+    }
 }

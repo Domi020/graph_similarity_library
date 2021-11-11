@@ -1,11 +1,16 @@
+import MetricCalculators.CentralityCalculator;
 import dhbw.graphmetrics.graph.Graph;
 import dhbw.graphmetrics.graph.SimpleUndirectedAdjacencyListGraph;
-import dhbw.graphmetrics.graph.persistence.GraphPersistence;
 import dhbw.graphmetrics.metrics.NodeMetric;
-import dhbw.graphmetrics.metrics.boundary.MetricsCalculation;
+import distance.DistanceMeasures;
 import generators.RMATGenerator;
+import generators.SpecialGraphGenerator;
+import tendancy.CentralTendencies;
 
-import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
 
@@ -16,8 +21,29 @@ public class Main {
         //System.out.println(x);
         //NetSimile simile = new NetSimile(graph, graph);
         //simile.doNetSimile();
-        RMATGenerator.generate();
-        var x = RMATGenerator.generateGraphFromMatrix();
+        double max = 0.0;
+        double min = 1.0;
+        double avg = 0.0;
+
+        for(int i = 0; i < 1000; i++) {
+            RMATGenerator.generate(5, 180, 0.2, 0.2, 0.3);
+            var x = RMATGenerator.generateGraphFromMatrix();
+            RMATGenerator.generate(5, 50, 0.2, 0.2, 0.3);
+            var y = RMATGenerator.generateGraphFromMatrix();
+            var closenessValuesOne = CentralityCalculator.calculateCentrality(NodeMetric.DEGREE_CENTRALITY, x);
+            var closenessValuesTwo = CentralityCalculator.calculateCentrality(NodeMetric.DEGREE_CENTRALITY, y);
+            var meanOne = CentralTendencies.arithmeticMean(closenessValuesOne);
+            var meanTwo = CentralTendencies.arithmeticMean(closenessValuesTwo);
+            var res = 1 - DistanceMeasures.CanberraDistance(meanOne, meanTwo);
+            if (res > max) max = res;
+            if (res < min) min = res;
+            avg += res;
+            System.out.println(res);
+           // System.out.println();
+        }
+        avg = avg / 1000.0;
+        System.out.println("Max: " + max + "\nMin: "+ min + "\navg: "+ avg);
+
         /*
         try{
             GraphPersistence.persistGraph(x, null, null);
@@ -56,5 +82,19 @@ public class Main {
         graph.addEdge(7, 8, 1);
 
         return graph;
+    }
+
+    static void shuffleArray(Double[] ar)
+    {
+        // If running on Java 6 or older, use `new Random()` on RHS here
+        Random rnd = ThreadLocalRandom.current();
+        for (int i = ar.length - 1; i > 0; i--)
+        {
+            int index = rnd.nextInt(i + 1);
+            // Simple swap
+            double a = ar[index];
+            ar[index] = ar[i];
+            ar[i] = a;
+        }
     }
 }
