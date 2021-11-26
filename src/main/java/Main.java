@@ -2,10 +2,12 @@ import MetricCalculators.CentralityCalculator;
 import dhbw.graphmetrics.graph.Graph;
 import dhbw.graphmetrics.graph.SimpleUndirectedAdjacencyListGraph;
 import dhbw.graphmetrics.metrics.NodeMetric;
+import distance.DistanceMeasure;
 import distance.DistanceMeasures;
 import generators.RMATGenerator;
 import generators.SpecialGraphGenerator;
 import tendancy.CentralTendencies;
+import tendancy.Tendency;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -15,42 +17,16 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Main {
 
     public static void main(String[] args) {
+        testcase_closeness_canberra_mean();
+    }
 
-        //Graph<Integer, Integer> graph = buildGraph();
-        //Number x = MetricsCalculation.calculateNodeMetric(graph, 2, NodeMetric.BETWEENNESS_CENTRALITY);
-        //System.out.println(x);
-        //NetSimile simile = new NetSimile(graph, graph);
-        //simile.doNetSimile();
-        double max = 0.0;
-        double min = 1.0;
-        double avg = 0.0;
-
-        for(int i = 0; i < 1000; i++) {
-            RMATGenerator.generate(5, 180, 0.2, 0.2, 0.3);
-            var x = RMATGenerator.generateGraphFromMatrix();
-            RMATGenerator.generate(5, 50, 0.2, 0.2, 0.3);
-            var y = RMATGenerator.generateGraphFromMatrix();
-            var closenessValuesOne = CentralityCalculator.calculateCentrality(NodeMetric.DEGREE_CENTRALITY, x);
-            var closenessValuesTwo = CentralityCalculator.calculateCentrality(NodeMetric.DEGREE_CENTRALITY, y);
-            var meanOne = CentralTendencies.arithmeticMean(closenessValuesOne);
-            var meanTwo = CentralTendencies.arithmeticMean(closenessValuesTwo);
-            var res = 1 - DistanceMeasures.CanberraDistance(meanOne, meanTwo);
-            if (res > max) max = res;
-            if (res < min) min = res;
-            avg += res;
-            System.out.println(res);
-           // System.out.println();
-        }
-        avg = avg / 1000.0;
-        System.out.println("Max: " + max + "\nMin: "+ min + "\navg: "+ avg);
-
-        /*
-        try{
-            GraphPersistence.persistGraph(x, null, null);
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-        */
+    public static void testcase_closeness_canberra_mean() {
+        MetricCompareTest test = new MetricCompareTest();
+        test.setMetric(NodeMetric.CLOSENESS_CENTRALITY);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.MEAN);
+        test.setRMATParams(7,3251,0.2,0.2,0.3);
+        test.doTest(1000);
     }
 
     public static Graph<Integer, Integer> buildGraph() {

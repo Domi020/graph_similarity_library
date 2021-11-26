@@ -4,6 +4,13 @@ import java.util.Vector;
 
 public class DistanceMeasures {
 
+    public static double calculateDistance(Double graphOne, Double graphTwo, DistanceMeasure measure) {
+        if(measure == DistanceMeasure.CANBERRA) {
+            return CanberraDistance(graphOne, graphTwo);
+        }
+        return 0.0;
+    }
+
     public static double CanberraDistance(Double[] graphOne, Double[] graphTwo) {
         double sum = 0.0;
         for (int i = 0; i<graphOne.length; i++) {
