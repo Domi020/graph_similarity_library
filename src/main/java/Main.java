@@ -1,32 +1,132 @@
-import MetricCalculators.CentralityCalculator;
 import dhbw.graphmetrics.graph.Graph;
 import dhbw.graphmetrics.graph.SimpleUndirectedAdjacencyListGraph;
 import dhbw.graphmetrics.metrics.NodeMetric;
 import distance.DistanceMeasure;
-import distance.DistanceMeasures;
-import generators.RMATGenerator;
-import generators.SpecialGraphGenerator;
-import tendancy.CentralTendencies;
 import tendancy.Tendency;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
 
     public static void main(String[] args) {
-        testcase_closeness_canberra_mean();
+        testcase12_closeness_manhattan_slightlydiff_mean();
     }
 
-    public static void testcase_closeness_canberra_mean() {
+    public static void testcase12_closeness_manhattan_slightlydiff_mean() {
+        MetricCompareTest test = new MetricCompareTest();
+        test.setMetric(NodeMetric.CLOSENESS_CENTRALITY);
+        test.setDistanceMeasure(DistanceMeasure.MANHATTAN);
+        test.setTendency(Tendency.MEAN);
+        test.setRMATParams(7,3251,0.2,0.2,0.3);
+        test.setRMATParamsTwo(7,1626,0.2,0.2,0.3);
+        test.doDualGraphTest(1000);
+    }
+
+    public static void testcase11_closeness_quadratic_slightlydiff_mean() {
+        MetricCompareTest test = new MetricCompareTest();
+        test.setMetric(NodeMetric.CLOSENESS_CENTRALITY);
+        test.setDistanceMeasure(DistanceMeasure.QUADRATIC_EUCLIDEAN);
+        test.setTendency(Tendency.MEAN);
+        test.setRMATParams(7,3251,0.2,0.2,0.3);
+        test.setRMATParamsTwo(7,1626,0.2,0.2,0.3);
+        test.doDualGraphTest(1000);
+    }
+
+    public static void testcase10_closeness_euclidean_slightlydiff_mean() {
+        MetricCompareTest test = new MetricCompareTest();
+        test.setMetric(NodeMetric.CLOSENESS_CENTRALITY);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setTendency(Tendency.MEAN);
+        test.setRMATParams(7,3251,0.2,0.2,0.3);
+        test.setRMATParamsTwo(7,1626,0.2,0.2,0.3);
+        test.doDualGraphTest(1000);
+    }
+
+    public static void testcase9_closeness_canberra_slightlydiff_mean() {
         MetricCompareTest test = new MetricCompareTest();
         test.setMetric(NodeMetric.CLOSENESS_CENTRALITY);
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
         test.setTendency(Tendency.MEAN);
         test.setRMATParams(7,3251,0.2,0.2,0.3);
-        test.doTest(1000);
+        test.setRMATParamsTwo(7,1626,0.2,0.2,0.3);
+        test.doDualGraphTest(1000);
+    }
+
+    public static void testcase8_closeness_manhattan_diff_mean() {
+        MetricCompareTest test = new MetricCompareTest();
+        test.setMetric(NodeMetric.CLOSENESS_CENTRALITY);
+        test.setDistanceMeasure(DistanceMeasure.MANHATTAN);
+        test.setTendency(Tendency.MEAN);
+        test.setRMATParams(7,3251,0.2,0.2,0.3);
+        test.setRMATParamsTwo(7,406,0.2,0.2,0.3);
+        test.doDualGraphTest(1000);
+    }
+
+    public static void testcase7_closeness_quadratic_diff_mean() {
+        MetricCompareTest test = new MetricCompareTest();
+        test.setMetric(NodeMetric.CLOSENESS_CENTRALITY);
+        test.setDistanceMeasure(DistanceMeasure.QUADRATIC_EUCLIDEAN);
+        test.setTendency(Tendency.MEAN);
+        test.setRMATParams(7,3251,0.2,0.2,0.3);
+        test.setRMATParamsTwo(7,406,0.2,0.2,0.3);
+        test.doDualGraphTest(1000);
+    }
+
+    public static void testcase6_closeness_euclidean_diff_mean() {
+        MetricCompareTest test = new MetricCompareTest();
+        test.setMetric(NodeMetric.CLOSENESS_CENTRALITY);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setTendency(Tendency.MEAN);
+        test.setRMATParams(7,3251,0.2,0.2,0.3);
+        test.setRMATParamsTwo(7,406,0.2,0.2,0.3);
+        test.doDualGraphTest(1000);
+    }
+
+    public static void testcase5_closeness_canberra_diff_mean() {
+        MetricCompareTest test = new MetricCompareTest();
+        test.setMetric(NodeMetric.CLOSENESS_CENTRALITY);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.MEAN);
+        test.setRMATParams(7,3251,0.2,0.2,0.3);
+        test.setRMATParamsTwo(7,406,0.2,0.2,0.3);
+        test.doDualGraphTest(1000);
+    }
+
+    public static void testcase4_closeness_manhattan_mean() {
+        MetricCompareTest test = new MetricCompareTest();
+        test.setMetric(NodeMetric.CLOSENESS_CENTRALITY);
+        test.setDistanceMeasure(DistanceMeasure.MANHATTAN);
+        test.setTendency(Tendency.MEAN);
+        test.setRMATParams(7,3251,0.2,0.2,0.3);
+        test.doSingleGraphTest(1000);
+    }
+
+    public static void testcase3_closeness_quadratic_mean() {
+        MetricCompareTest test = new MetricCompareTest();
+        test.setMetric(NodeMetric.CLOSENESS_CENTRALITY);
+        test.setDistanceMeasure(DistanceMeasure.QUADRATIC_EUCLIDEAN);
+        test.setTendency(Tendency.MEAN);
+        test.setRMATParams(7,3251,0.2,0.2,0.3);
+        test.doSingleGraphTest(1000);
+    }
+
+    public static void testcase1_closeness_canberra_mean() {
+        MetricCompareTest test = new MetricCompareTest();
+        test.setMetric(NodeMetric.CLOSENESS_CENTRALITY);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.MEAN);
+        test.setRMATParams(7,3251,0.2,0.2,0.3);
+        test.doSingleGraphTest(1000);
+    }
+
+    public static void testcase2_closeness_euclidean_mean() {
+        MetricCompareTest test = new MetricCompareTest();
+        test.setMetric(NodeMetric.CLOSENESS_CENTRALITY);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setTendency(Tendency.MEAN);
+        test.setRMATParams(7,3251,0.2,0.2,0.3);
+        test.doSingleGraphTest(1000);
     }
 
     public static Graph<Integer, Integer> buildGraph() {

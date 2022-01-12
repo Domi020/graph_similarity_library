@@ -6,6 +6,9 @@ import generators.RMATGenerator;
 import tendancy.CentralTendencies;
 import tendancy.Tendency;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MetricCompareTest {
 
 
@@ -19,6 +22,11 @@ public class MetricCompareTest {
     private int RMATNodes;
     private int RMATEdges;
 
+    private double RMATAlphaTwo;
+    private double RMATBetaTwo;
+    private double RMATGammaTwo;
+    private int RMATNodesTwo;
+    private int RMATEdgesTwo;
 
     public void setTendency(Tendency tendency) {
         this.tendency = tendency;
@@ -40,7 +48,15 @@ public class MetricCompareTest {
         this.RMATGamma = RMATGamma;
     }
 
-    public void doTest(int amount) {
+    public void setRMATParamsTwo(int RMATNodes, int RMATEdges, double RMATAlpha, double RMATBeta, double RMATGamma) {
+        this.RMATEdgesTwo = RMATEdges;
+        this.RMATNodesTwo = RMATNodes;
+        this.RMATAlphaTwo = RMATAlpha;
+        this.RMATBetaTwo = RMATBeta;
+        this.RMATGammaTwo = RMATGamma;
+    }
+
+    public void doSingleGraphTest(int amount) {
         double max = 0.0;
         double min = 1.0;
         double avg = 0.0;
@@ -63,5 +79,42 @@ public class MetricCompareTest {
         }
         avg = avg / (double) amount;
         System.out.println("Max: " + max + "\nMin: "+ min + "\navg: "+ avg);
+    }
+
+    public void doDualGraphTest(int amount) {
+        double max = 0.0;
+        double min = 1.0;
+        double avg = 0.0;
+
+        var resList = new ArrayList<Double>();
+
+        for(int i = 0; i < amount; i++) {
+            RMATGenerator.generate(RMATNodes, RMATEdges, RMATAlpha, RMATBeta, RMATGamma);
+            var x = RMATGenerator.generateGraphFromMatrix();
+            RMATGenerator.generate(RMATNodesTwo, RMATEdgesTwo, RMATAlphaTwo, RMATBetaTwo, RMATGammaTwo);
+            var y = RMATGenerator.generateGraphFromMatrix();
+            var closenessValuesOne = CentralityCalculator.calculateCentrality(metric, x);
+            var closenessValuesTwo = CentralityCalculator.calculateCentrality(metric, y);
+            var meanOne = CentralTendencies.calculateTendency(closenessValuesOne, tendency);
+            var meanTwo = CentralTendencies.calculateTendency(closenessValuesTwo, tendency);
+            var res = 1 - DistanceMeasures.calculateDistance(meanOne, meanTwo, distanceMeasure);
+            if (res > max) max = res;
+            if (res < min) min = res;
+            avg += res;
+            System.out.println(res);
+            resList.add(res);
+            // System.out.println();
+        }
+        avg = avg / (double) amount;
+        double variance = calcVariance(resList, avg);
+        System.out.println("Max: " + max + "\nMin: "+ min + "\navg: "+ avg + "\nVar: " + variance);
+    }
+
+    private Double calcVariance(List<Double> res, double avg) {
+        double sum = 0;
+        for (Double re : res) {
+            sum += Math.pow(re - avg, 2);
+        }
+        return sum / (double) res.size();
     }
 }
