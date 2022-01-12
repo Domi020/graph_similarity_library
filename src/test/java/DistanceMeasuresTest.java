@@ -1,3 +1,4 @@
+import distance.DistanceMeasure;
 import distance.DistanceMeasures;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,5 +13,14 @@ public class DistanceMeasuresTest {
         var result = DistanceMeasures.CanberraDistance(graphOne, graphTwo);
 
         Assert.assertEquals(2.476, result, 0.001);
+    }
+    @Test
+    public void euclidean_distance_correctValueWithInts() {
+        Double graphOne = 5.0;
+        Double graphTwo = 3.0;
+
+        var result = DistanceMeasures.calculateDistance(graphOne, graphTwo, DistanceMeasure.EUCLIDEAN);
+
+        Assert.assertEquals(2.0, result, 0.00000000001);
     }
 }

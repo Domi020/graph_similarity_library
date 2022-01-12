@@ -1,5 +1,5 @@
 package distance;
 
 public enum DistanceMeasure {
-    CANBERRA
+    CANBERRA, EUCLIDEAN, QUADRATIC_EUCLIDEAN, MANHATTAN
 }
