@@ -48,12 +48,14 @@ public class CentralTendencies {
 
     private static Double median(Double[] values) {
         List<Double> sorted = Arrays.stream(values).sorted().collect(Collectors.toList());
-        return sorted.get(values.length / 2);
+        return values.length % 2 == 0 ? sorted.get(values.length / 2 - 1)  : sorted.get(values.length / 2);
     }
 
     private static Double harmonicMean(Double[] values) {
-        var nenner = Arrays.stream(values)
-                .reduce((res, next) -> res += (1.0 / next)).get();
-        return ((double) values.length / nenner);
+        double res = 0.0;
+        for(var value : values) {
+            res += (1.0 / value);
+        }
+        return ((double) values.length / res);
     }
 }
