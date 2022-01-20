@@ -1,5 +1,5 @@
 package tendancy;
 
 public enum Tendency {
-    MEAN
+    MEAN, GEOMETRIC, HARMONIC, MODUS, MEDIAN
 }
