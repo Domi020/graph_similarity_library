@@ -16,6 +16,18 @@ public class DistanceMeasures {
         }
         return 0.0;
     }
+    public static double calculateDistance(Double[] graphOne, Double[] graphTwo, DistanceMeasure measure) {
+        if(measure == DistanceMeasure.CANBERRA) {
+            return CanberraDistance(graphOne, graphTwo);
+        } else if(measure == DistanceMeasure.EUCLIDEAN) {
+            return EuclideanDistance(graphOne, graphTwo);
+        } else if(measure == DistanceMeasure.QUADRATIC_EUCLIDEAN) {
+            return QuadraticEuclideanDistance(graphOne, graphTwo);
+        } else if(measure == DistanceMeasure.MANHATTAN) {
+            return ManhattanDistance(graphOne, graphTwo);
+        }
+        return 0.0;
+    }
 
     public static double CanberraDistance(Double[] graphOne, Double[] graphTwo) {
         double sum = 0.0;
@@ -33,11 +45,33 @@ public class DistanceMeasures {
         return Math.sqrt(Math.pow(graphOne - graphTwo, 2));
     }
 
+    private static double EuclideanDistance(Double[] graphOne, Double[] graphTwo) {
+        double sum = 0.0;
+        for (int i = 0; i<graphOne.length; i++) {
+            sum += Math.pow(graphOne[i] - graphTwo[i], 2);
+        }
+        return Math.sqrt(sum);
+    }
+
     private static double QuadraticEuclideanDistance(Double graphOne, Double graphTwo) {
         return Math.pow(graphOne - graphTwo, 2);
+    }
+    private static double QuadraticEuclideanDistance(Double[] graphOne, Double[] graphTwo) {
+        double sum = 0.0;
+        for (int i = 0; i<graphOne.length; i++) {
+            sum += Math.pow(graphOne[i] - graphTwo[i], 2);
+        }
+        return sum;
     }
 
     private static double ManhattanDistance(Double graphOne, Double graphTwo) {
         return Math.abs(graphOne - graphTwo);
+    }
+    private static double ManhattanDistance(Double[] graphOne, Double[] graphTwo) {
+        double sum = 0.0;
+        for (int i = 0; i<graphOne.length; i++) {
+            sum += Math.abs(graphOne[i] - graphTwo[i]);
+        }
+        return sum;
     }
 }

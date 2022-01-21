@@ -28,8 +28,9 @@ public class CentralTendencies {
     }
 
     private static Double geometricMean(Double[] values) {
-        return Math.pow(Arrays.stream(values)
+        double x = Math.pow(Arrays.stream(values)
                 .reduce((val, res) -> val * res).get(), 1.0 / (double) values.length);
+        return Double.isNaN(x) ? 0.0 : x;
     }
 
     private static Double modus(Double[] values) {

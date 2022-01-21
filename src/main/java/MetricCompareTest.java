@@ -110,6 +110,33 @@ public class MetricCompareTest {
         System.out.println("Max: " + max + "\nMin: "+ min + "\navg: "+ avg + "\nVar: " + variance);
     }
 
+    public void doDualGraphTestWOTendancy(int amount) {
+        double max = 0.0;
+        double min = 1.0;
+        double avg = 0.0;
+
+        var resList = new ArrayList<Double>();
+
+        for(int i = 0; i < amount; i++) {
+            RMATGenerator.generate(RMATNodes, RMATEdges, RMATAlpha, RMATBeta, RMATGamma);
+            var x = RMATGenerator.generateGraphFromMatrix();
+            RMATGenerator.generate(RMATNodesTwo, RMATEdgesTwo, RMATAlphaTwo, RMATBetaTwo, RMATGammaTwo);
+            var y = RMATGenerator.generateGraphFromMatrix();
+            var closenessValuesOne = CentralityCalculator.calculateCentrality(metric, x);
+            var closenessValuesTwo = CentralityCalculator.calculateCentrality(metric, y);
+            var res = 1 - DistanceMeasures.calculateDistance(closenessValuesOne, closenessValuesTwo, distanceMeasure);
+            if (res > max) max = res;
+            if (res < min) min = res;
+            avg += res;
+            System.out.println(res);
+            resList.add(res);
+            // System.out.println();
+        }
+        avg = avg / (double) amount;
+        double variance = calcVariance(resList, avg);
+        System.out.println("Max: " + max + "\nMin: "+ min + "\navg: "+ avg + "\nVar: " + variance);
+    }
+
     private Double calcVariance(List<Double> res, double avg) {
         double sum = 0;
         for (Double re : res) {
