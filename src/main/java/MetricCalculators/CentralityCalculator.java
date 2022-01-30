@@ -17,4 +17,30 @@ public class CentralityCalculator {
         }
         return values.toArray(new Double[0]);
     }
+    /*
+
+    Closeness Centrality
+        * Distanz zwischen zwei Knoten
+        * Knotenzahl im Graph
+
+        Max: 1
+        Min: 0
+
+    Betweenness Centrality
+        * (indirekt) Distanzen
+        * Anzahl kürzeste Wege
+
+        Max: (n-1) * (n-2) / 2 [n = Anzahl Knoten]
+        Min: 0
+
+
+     Degree Centrality
+        * Gradzahl
+
+        Max: (n-1)
+        Min: 0
+     */
+
+
+
 }
