@@ -8,6 +8,8 @@ import tendancy.Tendency;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 public class MultipleMetricCompare {
@@ -57,43 +59,59 @@ public class MultipleMetricCompare {
         this.RMATGammaTwo = RMATGamma;
     }
 
+    ConcurrentLinkedQueue<Double> resList;
+
     public void doDualGraphTest(int amount) {
+        double avg = 0.0;
         double max = 0.0;
         double min = 1.0;
-        double avg = 0.0;
 
-        var resList = new ArrayList<Double>();
+        resList = new ConcurrentLinkedQueue<>();
+        var resArrayList = new ArrayList<Double>();
+        var executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+        var work = new ArrayList<Future<?>>();
 
 
         for (int i = 0; i < amount; i++) {
-            RMATGenerator.generate(RMATNodes, RMATEdges, RMATAlpha, RMATBeta, RMATGamma);
-            var x = RMATGenerator.generateGraphFromMatrix();
-            RMATGenerator.generate(RMATNodesTwo, RMATEdgesTwo, RMATAlphaTwo, RMATBetaTwo, RMATGammaTwo);
-            var y = RMATGenerator.generateGraphFromMatrix();
-            Double[] meansOne = new Double[metrics.length];
-            Double[] meansTwo = new Double[metrics.length];
-            int j = 0;
-            for (var metric : metrics) {
-                var valueArrayOne = CentralityCalculator.calculateCentrality(metric, x);
-                var valueArrayOneNorm = Normalizer.normalizeNodeMetricArray(valueArrayOne,
-                        x.nodes().size(), metric);
-                var meanOne = CentralTendencies.calculateTendency(valueArrayOneNorm, tendency);
-                var valueArrayTwo = CentralityCalculator.calculateCentrality(metric, y);
-                var valueArrayTwoNorm = Normalizer.normalizeNodeMetricArray(valueArrayTwo,
-                        y.nodes().size(), metric);
-                var meanTwo = CentralTendencies.calculateTendency(valueArrayTwoNorm, tendency);
-                meansOne[j] = meanOne; meansTwo[j] = meanTwo; j++;
-            }
-            var res = 1 - DistanceMeasures.calculateDistance(meansOne, meansTwo, distanceMeasure);
-            if (res > max) max = res;
-            if (res < min) min = res;
-            avg += res;
-            System.out.println(res);
-            resList.add(res);
+            var x = executor.submit(this::doCalcRun);
+            work.add(x);
+        }
+        for (int i = 0; i < amount; i++) {
+            try{
+                work.get(i).get();
+            } catch (Exception ignored) {}
+            var oneRes = resList.poll();
+            avg += oneRes;
+            if (oneRes > max) max = oneRes;
+            if (oneRes < min) min = oneRes;
+            resArrayList.add(oneRes);
         }
         avg = avg / (double) amount;
-        double variance = calcVariance(resList, avg);
+        double variance = calcVariance(resArrayList, avg);
         System.out.println("Max: " + max + "\nMin: " + min + "\navg: " + avg + "\nVar: " + variance);
+        executor.shutdown();
+    }
+
+    private void doCalcRun() {
+        var x = RMATGenerator.generate(RMATNodes, RMATEdges, RMATAlpha, RMATBeta, RMATGamma);
+        var y = RMATGenerator.generate(RMATNodesTwo, RMATEdgesTwo, RMATAlphaTwo, RMATBetaTwo, RMATGammaTwo);
+        Double[] meansOne = new Double[metrics.length];
+        Double[] meansTwo = new Double[metrics.length];
+        int j = 0;
+        for (var metric : metrics) {
+            var valueArrayOne = CentralityCalculator.calculateCentrality(metric, x);
+            var valueArrayOneNorm = Normalizer.normalizeNodeMetricArray(valueArrayOne,
+                    x.nodes().size(), metric);
+            var meanOne = CentralTendencies.calculateTendency(valueArrayOneNorm, tendency);
+            var valueArrayTwo = CentralityCalculator.calculateCentrality(metric, y);
+            var valueArrayTwoNorm = Normalizer.normalizeNodeMetricArray(valueArrayTwo,
+                    y.nodes().size(), metric);
+            var meanTwo = CentralTendencies.calculateTendency(valueArrayTwoNorm, tendency);
+            meansOne[j] = meanOne; meansTwo[j] = meanTwo; j++;
+        }
+        var res = 1 - DistanceMeasures.calculateDistance(meansOne, meansTwo, distanceMeasure);
+        System.out.println(res);
+        resList.add(res);
     }
 
 

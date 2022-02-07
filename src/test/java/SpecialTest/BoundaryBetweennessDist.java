@@ -27,7 +27,7 @@ public class BoundaryBetweennessDist {
         graphOne.addEdge(2, 7, 1);
 
         var z = MetricsCalculation.calculateNodeMetric(graphOne, 2, NodeMetric.BETWEENNESS_CENTRALITY);
-        Assert.assertEquals(15.0, z);
+        Assert.assertEquals(30.0, z);
     }
 
     @Test

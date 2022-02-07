@@ -62,10 +62,8 @@ public class MetricCompareTest {
         double avg = 0.0;
 
         for(int i = 0; i < amount; i++) {
-            RMATGenerator.generate(RMATNodes, RMATEdges, RMATAlpha, RMATBeta, RMATGamma);
-            var x = RMATGenerator.generateGraphFromMatrix();
-            RMATGenerator.generate(RMATNodes, RMATEdges, RMATAlpha, RMATBeta, RMATGamma);
-            var y = RMATGenerator.generateGraphFromMatrix();
+            var x = RMATGenerator.generate(RMATNodes, RMATEdges, RMATAlpha, RMATBeta, RMATGamma);
+            var y = RMATGenerator.generate(RMATNodes, RMATEdges, RMATAlpha, RMATBeta, RMATGamma);
             var closenessValuesOne = CentralityCalculator.calculateCentrality(metric, x);
             var closenessValuesTwo = CentralityCalculator.calculateCentrality(metric, y);
             var meanOne = CentralTendencies.calculateTendency(closenessValuesOne, tendency);
@@ -89,10 +87,8 @@ public class MetricCompareTest {
         var resList = new ArrayList<Double>();
 
         for(int i = 0; i < amount; i++) {
-            RMATGenerator.generate(RMATNodes, RMATEdges, RMATAlpha, RMATBeta, RMATGamma);
-            var x = RMATGenerator.generateGraphFromMatrix();
-            RMATGenerator.generate(RMATNodesTwo, RMATEdgesTwo, RMATAlphaTwo, RMATBetaTwo, RMATGammaTwo);
-            var y = RMATGenerator.generateGraphFromMatrix();
+            var x = RMATGenerator.generate(RMATNodes, RMATEdges, RMATAlpha, RMATBeta, RMATGamma);
+            var y = RMATGenerator.generate(RMATNodesTwo, RMATEdgesTwo, RMATAlphaTwo, RMATBetaTwo, RMATGammaTwo);
             var closenessValuesOne = CentralityCalculator.calculateCentrality(metric, x);
             var closenessValuesTwo = CentralityCalculator.calculateCentrality(metric, y);
             var meanOne = CentralTendencies.calculateTendency(closenessValuesOne, tendency);
@@ -118,10 +114,8 @@ public class MetricCompareTest {
         var resList = new ArrayList<Double>();
 
         for(int i = 0; i < amount; i++) {
-            RMATGenerator.generate(RMATNodes, RMATEdges, RMATAlpha, RMATBeta, RMATGamma);
-            var x = RMATGenerator.generateGraphFromMatrix();
-            RMATGenerator.generate(RMATNodesTwo, RMATEdgesTwo, RMATAlphaTwo, RMATBetaTwo, RMATGammaTwo);
-            var y = RMATGenerator.generateGraphFromMatrix();
+            var x = RMATGenerator.generate(RMATNodes, RMATEdges, RMATAlpha, RMATBeta, RMATGamma);
+            var y = RMATGenerator.generate(RMATNodesTwo, RMATEdgesTwo, RMATAlphaTwo, RMATBetaTwo, RMATGammaTwo);
             var closenessValuesOne = CentralityCalculator.calculateCentrality(metric, x);
             var closenessValuesTwo = CentralityCalculator.calculateCentrality(metric, y);
             var res = 1 - DistanceMeasures.calculateDistance(closenessValuesOne, closenessValuesTwo, distanceMeasure);

@@ -20,16 +20,11 @@ public class RMATGenerator {
 
     //static String fileOutputName = "C:/TEMP/DSN/" + numberOfNodes + "_" + M + ".TGF";
 
-
-    static int numberOfEdges = 0;
-
-    public static int[][] a;
-
-    public static void generate(int k, int M, double alpha, double beta, double gamma){
-
+    public static Graph<Integer, Integer> generate(int k, int M, double alpha, double beta, double gamma){
+        int numberOfEdges = 0;
         int numberOfNodes = (int) Math.pow(2., (double) k);
         Random r = new Random();
-        a = new int[numberOfNodes][numberOfNodes];
+        int[][] a = new int[numberOfNodes][numberOfNodes];
 
         for (int m=1;m<=M;m++){
             int i = 0;
@@ -60,6 +55,7 @@ public class RMATGenerator {
                 }
             }
         }
+        return generateGraphFromMatrix(a);
     }
 /*
     public static void print(){
@@ -73,7 +69,7 @@ public class RMATGenerator {
         System.out.println("Number of edges : " + numberOfEdges);
     }
 */
-    public static Graph<Integer, Integer> generateGraphFromMatrix() {
+    private static Graph<Integer, Integer> generateGraphFromMatrix(int[][] a) {
         Graph<Integer, Integer> graph = new SimpleDirectedAdjacencyListGraph<>();
         for(int i = 0; i<a.length; i++) {
             graph.addNode(i);

@@ -5,7 +5,7 @@ import tendancy.Tendency;
 public class Closeness_Degree_Main {
 
     public static void main(String[] args) {
-        testcase2_edgesVeryDifferent();
+        testcase1_sameRMAT();
     }
 
     public static void testcase2_edgesVeryDifferent() {
