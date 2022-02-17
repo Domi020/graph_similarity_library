@@ -11,6 +11,10 @@ public class Normalizer {
                 double max = (double) nodeNumber - 1;
                 return value / max;
             }
+            case CLOSENESS_CENTRALITY_DISCONNECTED -> {
+                double max = (1.0 / (double) (nodeNumber - 1));
+                return value /max;
+            }
             default -> {
                 return value;
             }

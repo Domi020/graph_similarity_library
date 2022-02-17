@@ -13,6 +13,9 @@ public class CentralityCalculator {
         ArrayList<Double> values = new ArrayList<>();
         for (Integer x : graph.nodes()) {
             var z = MetricsCalculation.calculateNodeMetric(graph, x, metric);
+            if(metric == NodeMetric.CLOSENESS_CENTRALITY && z.doubleValue() < 0) {
+                z = 0;
+            }
             values.add(z.doubleValue());
         }
         return values.toArray(new Double[0]);
