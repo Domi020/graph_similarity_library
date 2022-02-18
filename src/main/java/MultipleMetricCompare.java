@@ -8,6 +8,7 @@ import tendancy.Tendency;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.LongSummaryStatistics;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
@@ -60,6 +61,7 @@ public class MultipleMetricCompare {
     }
 
     ConcurrentLinkedQueue<Double> resList;
+    ConcurrentLinkedQueue<Long> timeList;
 
     public void doDualGraphTest(int amount) {
         double avg = 0.0;
@@ -67,6 +69,7 @@ public class MultipleMetricCompare {
         double min = 1.0;
 
         resList = new ConcurrentLinkedQueue<>();
+        timeList = new ConcurrentLinkedQueue<>();
         var resArrayList = new ArrayList<Double>();
         var executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         var work = new ArrayList<Future<?>>();
@@ -88,7 +91,9 @@ public class MultipleMetricCompare {
         }
         avg = avg / (double) amount;
         double variance = calcVariance(resArrayList, avg);
-        System.out.println("Max: " + max + "\nMin: " + min + "\navg: " + avg + "\nVar: " + variance);
+        LongSummaryStatistics timeStats = timeList.stream().mapToLong(Long::longValue).summaryStatistics();
+        System.out.println("Max: " + max + "\nMin: " + min + "\navg: " + avg + "\nVar: " + variance +
+                "\nAvgTime: " + timeStats.getAverage() + "\nSumTime: " + timeStats.getSum());
         executor.shutdown();
     }
 
@@ -98,6 +103,7 @@ public class MultipleMetricCompare {
         Double[] meansOne = new Double[metrics.length];
         Double[] meansTwo = new Double[metrics.length];
         int j = 0;
+        long startTime = System.nanoTime();
         for (var metric : metrics) {
             var valueArrayOne = CentralityCalculator.calculateCentrality(metric, x);
             var valueArrayOneNorm = Normalizer.normalizeNodeMetricArray(valueArrayOne,
@@ -110,8 +116,10 @@ public class MultipleMetricCompare {
             meansOne[j] = meanOne; meansTwo[j] = meanTwo; j++;
         }
         var res = 1 - DistanceMeasures.calculateDistance(meansOne, meansTwo, distanceMeasure);
+        long endTime = System.nanoTime();
         System.out.println(res);
         resList.add(res);
+        timeList.add(endTime - startTime);
     }
 
 
