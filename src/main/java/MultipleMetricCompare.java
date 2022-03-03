@@ -1,8 +1,11 @@
 import MetricCalculators.CentralityCalculator;
+import dhbw.graphmetrics.graph.Graph;
 import dhbw.graphmetrics.metrics.NodeMetric;
 import distance.DistanceMeasure;
 import distance.DistanceMeasures;
+import generators.BarabasiAlbertGenerator;
 import generators.RMATGenerator;
+import python.PythonGraphGenerator;
 import tendancy.CentralTendencies;
 import tendancy.Tendency;
 
@@ -32,6 +35,14 @@ public class MultipleMetricCompare {
     private int RMATNodesTwo;
     private int RMATEdgesTwo;
 
+    private boolean useBarabasiAlbert = false;
+    private int BANodes;
+    private int BAEdgesPerIteration;
+    private int BANodesTwo;
+    private int BAEdgesPerIterationTwo;
+
+    private boolean printGEDScript = false;
+
     public void setTendency(Tendency tendency) {
         this.tendency = tendency;
     }
@@ -42,6 +53,22 @@ public class MultipleMetricCompare {
 
     public void setMetrics(NodeMetric[] nodeMetrics) {
         this.metrics = nodeMetrics;
+    }
+
+    public void setPrintGEDScript(boolean printGEDScript) {
+        this.printGEDScript = printGEDScript;
+    }
+
+    public void setBAParams(int BANodes, int BAEdgesPerIteration) {
+        this.useBarabasiAlbert = true;
+        this.BANodes = BANodes;
+        this.BAEdgesPerIteration = BAEdgesPerIteration;
+    }
+
+    public void setBAParamsTwo(int BANodes, int BAEdgesPerIteration) {
+        this.useBarabasiAlbert = true;
+        this.BANodesTwo = BANodes;
+        this.BAEdgesPerIterationTwo = BAEdgesPerIteration;
     }
 
     public void setRMATParams(int RMATNodes, int RMATEdges, double RMATAlpha, double RMATBeta, double RMATGamma) {
@@ -98,8 +125,19 @@ public class MultipleMetricCompare {
     }
 
     private void doCalcRun() {
-        var x = RMATGenerator.generate(RMATNodes, RMATEdges, RMATAlpha, RMATBeta, RMATGamma);
-        var y = RMATGenerator.generate(RMATNodesTwo, RMATEdgesTwo, RMATAlphaTwo, RMATBetaTwo, RMATGammaTwo);
+        Graph<Integer, Integer> x;
+        Graph<Integer, Integer> y;
+        if (!useBarabasiAlbert) {
+            x = RMATGenerator.generate(RMATNodes, RMATEdges, RMATAlpha, RMATBeta, RMATGamma);
+            y = RMATGenerator.generate(RMATNodesTwo, RMATEdgesTwo, RMATAlphaTwo, RMATBetaTwo, RMATGammaTwo);
+        } else {
+            x = BarabasiAlbertGenerator.generate(BANodes, BAEdgesPerIteration);
+            y = BarabasiAlbertGenerator.generate(BANodesTwo, BAEdgesPerIterationTwo);
+        }
+        if (printGEDScript) {
+            //PythonGraphGenerator.generateGEDTest(x, y, true);
+            PythonGraphGenerator.generateGraphDrawer(x, y, true);
+        }
         Double[] meansOne = new Double[metrics.length];
         Double[] meansTwo = new Double[metrics.length];
         int j = 0;

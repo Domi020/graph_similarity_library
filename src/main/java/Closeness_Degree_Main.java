@@ -8,7 +8,7 @@ public class Closeness_Degree_Main {
 
         long startTime = System.nanoTime();
 
-        testcase13_perf_closeness_light();
+        testcase1_sameRMAT();
 
         long stopTime = System.nanoTime();
         System.out.println("Time: " + (stopTime - startTime));
@@ -79,6 +79,7 @@ public class Closeness_Degree_Main {
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
         test.setTendency(Tendency.MEAN);
+
         test.setRMATParams(8,13056,0.2,0.2,0.3);
         test.setRMATParamsTwo(6,50,0.2,0.2,0.3);
         test.doDualGraphTest(1000);
@@ -179,6 +180,7 @@ public class Closeness_Degree_Main {
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
         test.setTendency(Tendency.MEAN);
+        test.setPrintGEDScript(true);
         test.setRMATParams(7,3251,0.2,0.2,0.3);
         test.setRMATParamsTwo(7,203,0.2,0.2,0.3);
         test.doDualGraphTest(1000);
@@ -189,6 +191,7 @@ public class Closeness_Degree_Main {
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
         test.setTendency(Tendency.MEAN);
+        test.setPrintGEDScript(true);
         test.setRMATParams(7,3251,0.2,0.2,0.3);
         test.setRMATParamsTwo(7,3251,0.2,0.2,0.3);
         test.doDualGraphTest(1000);
