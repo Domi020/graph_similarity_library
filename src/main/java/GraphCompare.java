@@ -4,96 +4,35 @@ import dhbw.graphmetrics.metrics.NodeMetric;
 import distance.DistanceMeasure;
 import distance.DistanceMeasures;
 import generators.BarabasiAlbertGenerator;
+import generators.GraphGeneratorMethod;
+import generators.GraphGenerators;
 import generators.RMATGenerator;
+import lombok.Getter;
 import python.PythonGraphGenerator;
 import tendancy.CentralTendencies;
 import tendancy.Tendency;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.LongSummaryStatistics;
+import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
-public class MultipleMetricCompare {
+@Getter
+public class GraphCompare {
 
 
     private Tendency tendency;
     private DistanceMeasure distanceMeasure;
     private NodeMetric[] metrics;
 
-    private double RMATAlpha;
-    private double RMATBeta;
-    private double RMATGamma;
-    private int RMATNodes;
-    private int RMATEdges;
-
-    private double RMATAlphaTwo;
-    private double RMATBetaTwo;
-    private double RMATGammaTwo;
-    private int RMATNodesTwo;
-    private int RMATEdgesTwo;
-
-    private boolean useBarabasiAlbert = false;
-    private int BANodes;
-    private int BAEdgesPerIteration;
-    private int BANodesTwo;
-    private int BAEdgesPerIterationTwo;
-    private int starNodes;
-
-    private boolean printGEDScript = false;
-
-    public void setTendency(Tendency tendency) {
-        this.tendency = tendency;
-    }
-
-    public void setDistanceMeasure(DistanceMeasure measure) {
-        this.distanceMeasure = measure;
-    }
-
-    public void setMetrics(NodeMetric[] nodeMetrics) {
-        this.metrics = nodeMetrics;
-    }
-
-    public void setPrintGEDScript(boolean printGEDScript) {
-        this.printGEDScript = printGEDScript;
-    }
-
-    public void setBAParams(int BANodes, int BAEdgesPerIteration) {
-        this.useBarabasiAlbert = true;
-        this.BANodes = BANodes;
-        this.BAEdgesPerIteration = BAEdgesPerIteration;
-    }
-
-    public void setBAParamsTwo(int BANodes, int BAEdgesPerIteration) {
-        this.useBarabasiAlbert = true;
-        this.BANodesTwo = BANodes;
-        this.BAEdgesPerIterationTwo = BAEdgesPerIteration;
-    }
-
-    public void setRMATParams(int RMATNodes, int RMATEdges, double RMATAlpha, double RMATBeta, double RMATGamma) {
-        this.RMATEdges = RMATEdges;
-        this.RMATNodes = RMATNodes;
-        this.RMATAlpha = RMATAlpha;
-        this.RMATBeta = RMATBeta;
-        this.RMATGamma = RMATGamma;
-    }
-
-    public void setRMATParamsTwo(int RMATNodes, int RMATEdges, double RMATAlpha, double RMATBeta, double RMATGamma) {
-        this.RMATEdgesTwo = RMATEdges;
-        this.RMATNodesTwo = RMATNodes;
-        this.RMATAlphaTwo = RMATAlpha;
-        this.RMATBetaTwo = RMATBeta;
-        this.RMATGammaTwo = RMATGamma;
-    }
-
-    public void setStarNodes(int amount) {
-        this.starNodes = amount;
-    }
+    private Map<String, Object>[] generatorOptions;
+    private GraphGeneratorMethod[] generatorMethods;
 
     ConcurrentLinkedQueue<Double> resList;
     ConcurrentLinkedQueue<Long> timeList;
+
+
+    private boolean printGEDScript = false;
 
     public void doDualGraphTest(int amount) {
         double avg = 0.0;
@@ -136,15 +75,9 @@ public class MultipleMetricCompare {
     }
 
     private void doCalcRun() {
-        Graph<Integer, Integer> x;
-        Graph<Integer, Integer> y;
-        if (!useBarabasiAlbert) {
-            x = RMATGenerator.generate(RMATNodes, RMATEdges, RMATAlpha, RMATBeta, RMATGamma);
-            y = RMATGenerator.generate(RMATNodesTwo, RMATEdgesTwo, RMATAlphaTwo, RMATBetaTwo, RMATGammaTwo);
-        } else {
-            x = BarabasiAlbertGenerator.generate(BANodes, BAEdgesPerIteration);
-            y = BarabasiAlbertGenerator.generate(BANodesTwo, BAEdgesPerIterationTwo);
-        }
+        Graph<Integer, Integer> x = GraphGenerators.generateGraph(generatorMethods[0], generatorOptions[0]);
+        Graph<Integer, Integer> y = GraphGenerators.generateGraph(generatorMethods[1], generatorOptions[1]);
+
         if (printGEDScript) {
             //PythonGraphGenerator.generateGEDTest(x, y, true);
             PythonGraphGenerator.generateGraphDrawer(x, y, true);

@@ -33,4 +33,14 @@ public class SpecialGraphGenerator {
         }
         return graph;
     }
+
+    public static Graph<Integer, Integer> generateStarGraph(int amountNodes) {
+        Graph<Integer, Integer> graph = new SimpleUndirectedAdjacencyListGraph<>();
+        graph.addNode(0);
+        for (int i = 1; i<amountNodes; i++) {
+            graph.addNode(i);
+            graph.addEdge(i, 0, 1);
+        }
+        return graph;
+    }
 }

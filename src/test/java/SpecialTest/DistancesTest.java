@@ -21,6 +21,6 @@ public class DistancesTest {
 
         Number x = MetricsCalculation.calculateNodeToNodeMetric(graph, 5, 1, NodeToNodeMetric.DISTANCE);
 
-        Assert.assertEquals(0, x);
+        Assert.assertEquals(Integer.MAX_VALUE, x);
     }
 }

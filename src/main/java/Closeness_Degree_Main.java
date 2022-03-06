@@ -8,7 +8,7 @@ public class Closeness_Degree_Main {
 
         long startTime = System.nanoTime();
 
-        testcase1_sameRMAT();
+        testcase6_degree_veryDifferent();
 
         long stopTime = System.nanoTime();
         System.out.println("Time: " + (stopTime - startTime));
