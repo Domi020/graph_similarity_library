@@ -12,10 +12,10 @@ public class GraphGenerators {
     public static Graph<Integer, Integer> generateGraph(GraphGeneratorMethod method, Map<String, Object> options) {
         switch (method) {
             case RMAT -> {
-                if (options.containsKey("mode") && ((boolean) options.get("WODuplicates"))) {
+                if (options.containsKey("mode") && (options.get("mode").equals("onlyBelow"))) {
                     return RMATGenerator.generateWithoutDuplicates((int) options.get("k"), (int) options.get("M"),
                             (double) options.get("alpha"), (double) options.get("beta"), (double) options.get("gamma"));
-                } else if (options.containsKey("mode") && ((boolean) options.get("undirected"))) {
+                } else if (options.containsKey("mode") && (options.get("mode").equals("undirected"))) {
                     return RMATGenerator.generateUndirected((int) options.get("k"), (int) options.get("M"),
                             (double) options.get("alpha"), (double) options.get("beta"), (double) options.get("gamma"));
                 } else {

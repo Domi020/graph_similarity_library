@@ -1,6 +1,8 @@
 import MetricCalculators.CentralityCalculator;
 import dhbw.graphmetrics.graph.Graph;
+import dhbw.graphmetrics.metrics.GraphMetric;
 import dhbw.graphmetrics.metrics.NodeMetric;
+import dhbw.graphmetrics.metrics.boundary.MetricsCalculation;
 import distance.DistanceMeasure;
 import distance.DistanceMeasures;
 import generators.BarabasiAlbertGenerator;
@@ -104,6 +106,8 @@ public class GraphCompare {
         System.out.println(res);
         resList.add(res);
         timeList.add(endTime - startTime);
+        //System.out.println(MetricsCalculation.calculateGraphMetric(x, GraphMetric.SIZE));
+        //System.out.println(MetricsCalculation.calculateGraphMetric(y, GraphMetric.SIZE));
     }
 
 
