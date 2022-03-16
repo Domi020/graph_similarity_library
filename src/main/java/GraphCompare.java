@@ -8,6 +8,7 @@ import generators.GraphGeneratorMethod;
 import generators.GraphGenerators;
 import generators.RMATGenerator;
 import lombok.Getter;
+import lombok.Setter;
 import python.PythonGraphGenerator;
 import tendancy.CentralTendencies;
 import tendancy.Tendency;
@@ -18,6 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 @Getter
+@Setter
 public class GraphCompare {
 
 
@@ -25,7 +27,7 @@ public class GraphCompare {
     private DistanceMeasure distanceMeasure;
     private NodeMetric[] metrics;
 
-    private Map<String, Object>[] generatorOptions;
+    private List<Map<String, Object>> generatorOptions;
     private GraphGeneratorMethod[] generatorMethods;
 
     ConcurrentLinkedQueue<Double> resList;
@@ -75,8 +77,8 @@ public class GraphCompare {
     }
 
     private void doCalcRun() {
-        Graph<Integer, Integer> x = GraphGenerators.generateGraph(generatorMethods[0], generatorOptions[0]);
-        Graph<Integer, Integer> y = GraphGenerators.generateGraph(generatorMethods[1], generatorOptions[1]);
+        Graph<Integer, Integer> x = GraphGenerators.generateGraph(generatorMethods[0], generatorOptions.get(0));
+        Graph<Integer, Integer> y = GraphGenerators.generateGraph(generatorMethods[1], generatorOptions.get(1));
 
         if (printGEDScript) {
             //PythonGraphGenerator.generateGEDTest(x, y, true);

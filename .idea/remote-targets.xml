@@ -14,6 +14,18 @@
           </config>
         </ContributedStateBase>
       </target>
+      <target name="ubuntu@193.196.53.142:22" type="ssh/sftp">
+        <config>
+          <option name="projectRootOnTarget" value="/home/ubuntu/GraphCompareTest" />
+          <option name="serverName" value="ubuntu@193.196.53.142:22 key" />
+        </config>
+        <ContributedStateBase type="JavaLanguageRuntime">
+          <config>
+            <option name="homePath" value="/opt/jdk-17" />
+            <option name="javaVersionString" value="17" />
+          </config>
+        </ContributedStateBase>
+      </target>
     </targets>
   </component>
 </project>

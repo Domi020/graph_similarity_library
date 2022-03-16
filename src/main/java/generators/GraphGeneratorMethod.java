@@ -5,5 +5,6 @@ public enum GraphGeneratorMethod {
     BARABASI_ALBERT,
     COMPLETE,
     WITHOUT_EDGES,
-    STAR
+    STAR,
+    UNIQUE
 }

@@ -2,6 +2,7 @@ package generators;
 
 import dhbw.graphmetrics.graph.Graph;
 import dhbw.graphmetrics.graph.SimpleDirectedAdjacencyListGraph;
+import dhbw.graphmetrics.graph.SimpleUndirectedAdjacencyListGraph;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -19,6 +20,72 @@ public class RMATGenerator {
     //static int M = 100;
 
     //static String fileOutputName = "C:/TEMP/DSN/" + numberOfNodes + "_" + M + ".TGF";
+
+    public static Graph<Integer, Integer> generateUndirected(int k, int M, double alpha, double beta, double gamma) {
+        int numberOfEdges = 0;
+        int numberOfNodes = (int) Math.pow(2., (double) k);
+        int dx, dy = numberOfNodes / 2;
+        Random r = new Random();
+        int[][] a = new int[numberOfNodes][numberOfNodes];
+
+        while (numberOfEdges < M){
+            int i = 0;
+            int j = 0;
+            for (int t=0;t<=k-1;t++){
+                // Generate random number in (0,1)
+                double dr = r.nextDouble();
+                //System.out.println(dr);
+                if ((dr >= alpha) && (dr<alpha+beta)){
+                    j = j + (int) Math.pow(2., (double) (k-1-t));
+                }
+                else if ((dr >= alpha+beta) && (dr<alpha+beta+gamma)){
+                    i = i + (int) Math.pow(2., (double) (k-1-t));
+                }
+                else if ((dr>=alpha+beta+gamma) && dr < 1){
+                    i = i + (int) Math.pow(2., (double) (k-1-t));
+                    j = j + (int) Math.pow(2., (double) (k-1-t));
+                } // if
+            } // for t
+            if (a[i][j] == 0) {
+                a[i][j]++;
+                numberOfEdges++;
+            }
+        } // while m
+        return generateUndirectedGraphFromMatrix(a);
+    }
+
+    public static Graph<Integer, Integer> generateWithoutDuplicates(int k, int M, double alpha, double beta, double gamma) {
+        int numberOfEdges = 0;
+        int numberOfNodes = (int) Math.pow(2., (double) k);
+        int dx, dy = numberOfNodes / 2;
+        Random r = new Random();
+        int[][] a = new int[numberOfNodes][numberOfNodes];
+
+        while (numberOfEdges < M){
+            int i = 0;
+            int j = 0;
+            for (int t=0;t<=k-1;t++){
+                // Generate random number in (0,1)
+                double dr = r.nextDouble();
+                //System.out.println(dr);
+                if ((dr >= alpha) && (dr<alpha+beta)){
+                    j = j + (int) Math.pow(2., (double) (k-1-t));
+                }
+                else if ((dr >= alpha+beta) && (dr<alpha+beta+gamma)){
+                    i = i + (int) Math.pow(2., (double) (k-1-t));
+                }
+                else if ((dr>=alpha+beta+gamma) && dr < 1){
+                    i = i + (int) Math.pow(2., (double) (k-1-t));
+                    j = j + (int) Math.pow(2., (double) (k-1-t));
+                } // if
+            } // for t
+            if (a[i][j] == 0 && !isInUpperPart(j,i)) {
+                a[i][j]++;
+                numberOfEdges++;
+            }
+        } // while m
+        return generateUndirectedGraphFromMatrix(a);
+    }
 
     public static Graph<Integer, Integer> generate(int k, int M, double alpha, double beta, double gamma){
         int numberOfEdges = 0;
@@ -82,6 +149,25 @@ public class RMATGenerator {
             }
         }
         return graph;
+    }
+
+    private static Graph<Integer, Integer> generateUndirectedGraphFromMatrix(int[][] a) {
+        Graph<Integer, Integer> graph = new SimpleUndirectedAdjacencyListGraph<>();
+        for(int i = 0; i<a.length; i++) {
+            graph.addNode(i);
+        }
+        for(int i = 0; i<a.length; i++) {
+            for(int j = 0; j<i; j++) {
+                if (a[i][j] == 1) {
+                    graph.addEdge(i, j, 1);
+                }
+            }
+        }
+        return graph;
+    }
+
+    private static boolean isInUpperPart(int x, int y) {
+        return x > y;
     }
 /*
     public static void toTGFFile(String s){

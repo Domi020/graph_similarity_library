@@ -2,7 +2,9 @@ package generators;
 
 import dhbw.graphmetrics.graph.Graph;
 import dhbw.graphmetrics.graph.SimpleUndirectedAdjacencyListGraph;
+import org.apache.commons.math3.util.Pair;
 
+import java.util.List;
 import java.util.Objects;
 
 public class SpecialGraphGenerator {
@@ -40,6 +42,17 @@ public class SpecialGraphGenerator {
         for (int i = 1; i<amountNodes; i++) {
             graph.addNode(i);
             graph.addEdge(i, 0, 1);
+        }
+        return graph;
+    }
+
+    public static Graph<Integer, Integer> generateUniqueGraph(List<Integer> nodes, List<Pair<Integer, Integer>> edges) {
+        Graph<Integer, Integer> graph = new SimpleUndirectedAdjacencyListGraph<>();
+        for (var node : nodes) {
+            graph.addNode(node);
+        }
+        for (var edge : edges) {
+            graph.addEdge(edge.getFirst(), edge.getSecond(), 1);
         }
         return graph;
     }
