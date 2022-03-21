@@ -32,6 +32,10 @@ public class DistanceMeasures {
     public static double CanberraDistance(Double[] graphOne, Double[] graphTwo) {
         double sum = 0.0;
         for (int i = 0; i<graphOne.length; i++) {
+ /*           if (graphOne[i] == 0.000000000)
+                graphOne[i] += 0.000000001;
+            if (graphTwo[i] == 0.000000000)
+                graphTwo[i] += 0.000000001; */
             sum += Math.abs(graphOne[i] - graphTwo[i]) / (Math.abs(graphOne[i]) + Math.abs(graphTwo[i]));
         }
         return sum;
