@@ -73,8 +73,12 @@ public class GraphCompare {
         avg = avg / (double) amount;
         double variance = calcVariance(resArrayList, avg);
         LongSummaryStatistics timeStats = timeList.stream().mapToLong(Long::longValue).summaryStatistics();
-        System.out.println("Max: " + max + "\nMin: " + min + "\navg: " + avg + "\nVar: " + variance +
-                "\nAvgTime: " + timeStats.getAverage() + "\nSumTime: " + timeStats.getSum());
+        System.out.println("Min: " + Double.toString(min).replace('.', ',')
+                + "\nMax: " + Double.toString(max).replace('.', ',') +
+                "\navg: " + Double.toString(avg).replace('.', ',') +
+                "\nVar: " + Double.toString(variance).replace('.', ',') +
+                "\nAvgTime: " + Double.toString(timeStats.getAverage()).replace('.', ',')
+                + "\nSumTime: " + timeStats.getSum());
         executor.shutdown();
     }
 
@@ -103,7 +107,7 @@ public class GraphCompare {
         }
         var res = 1 - DistanceMeasures.calculateDistance(meansOne, meansTwo, distanceMeasure);
         long endTime = System.nanoTime();
-        System.out.println(res);
+        //System.out.print('x');
         resList.add(res);
         timeList.add(endTime - startTime);
         //System.out.println(MetricsCalculation.calculateGraphMetric(x, GraphMetric.SIZE));

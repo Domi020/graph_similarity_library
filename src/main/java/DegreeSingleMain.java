@@ -13,7 +13,7 @@ public class DegreeSingleMain {
     public static void main(String[] args) {
         long startTime = System.nanoTime();
 
-        testcase48();
+        testcase31();
 
         long stopTime = System.nanoTime();
         System.out.println("Time: " + (stopTime - startTime));
