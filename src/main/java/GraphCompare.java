@@ -105,7 +105,8 @@ public class GraphCompare {
             var meanTwo = CentralTendencies.calculateTendency(valueArrayTwoNorm, tendency);
             meansOne[j] = meanOne; meansTwo[j] = meanTwo; j++;
         }
-        var res = 1 - DistanceMeasures.calculateDistance(meansOne, meansTwo, distanceMeasure);
+        var res = DistanceMeasures.calculateDistance(meansOne, meansTwo, distanceMeasure);
+        res = 1 - Normalizer.normalizeDistanceMeasure(res, metrics.length, distanceMeasure);
         long endTime = System.nanoTime();
         //System.out.print('x');
         resList.add(res);

@@ -1,4 +1,5 @@
 import dhbw.graphmetrics.metrics.NodeMetric;
+import distance.DistanceMeasure;
 
 public class Normalizer {
     public static double normalizeNodeMetric(double value, int nodeNumber, NodeMetric metric) {
@@ -14,6 +15,20 @@ public class Normalizer {
             case CLOSENESS_CENTRALITY_DISCONNECTED -> {
                 double max = (1.0 / (double) (nodeNumber - 1));
                 return value /max;
+            }
+            default -> {
+                return value;
+            }
+        }
+    }
+
+    public static Double normalizeDistanceMeasure(double value, int numberOfMetrics, DistanceMeasure distanceMeasure) {
+        switch (distanceMeasure) {
+            case EUCLIDEAN -> {
+                return value / Math.sqrt(numberOfMetrics);
+            }
+            case CANBERRA -> {
+                return value / numberOfMetrics;
             }
             default -> {
                 return value;
