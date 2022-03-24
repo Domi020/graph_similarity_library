@@ -1,8 +1,8 @@
+import compare.GraphCompare;
 import dhbw.graphmetrics.metrics.NodeMetric;
 import distance.DistanceMeasure;
 import generators.GraphGeneratorMethod;
 import org.apache.commons.math3.util.Pair;
-import org.checkerframework.checker.units.qual.A;
 import tendancy.Tendency;
 
 import java.lang.reflect.InvocationTargetException;

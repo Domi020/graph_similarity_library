@@ -1,3 +1,5 @@
+package compare;
+
 import MetricCalculators.CentralityCalculator;
 import dhbw.graphmetrics.graph.Graph;
 import dhbw.graphmetrics.metrics.GraphMetric;
@@ -14,6 +16,7 @@ import lombok.Setter;
 import python.PythonGraphGenerator;
 import tendancy.CentralTendencies;
 import tendancy.Tendency;
+import util.Normalizer;
 
 import java.util.*;
 import java.util.concurrent.*;

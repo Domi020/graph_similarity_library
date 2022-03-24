@@ -1,3 +1,4 @@
+import compare.GraphCompare;
 import dhbw.graphmetrics.metrics.NodeMetric;
 import distance.DistanceMeasure;
 import generators.GraphGeneratorMethod;

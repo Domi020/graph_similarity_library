@@ -1,3 +1,5 @@
+package util;
+
 import dhbw.graphmetrics.metrics.NodeMetric;
 import distance.DistanceMeasure;
 
