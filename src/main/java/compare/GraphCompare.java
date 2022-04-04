@@ -99,17 +99,17 @@ public class GraphCompare {
         long startTime = System.nanoTime();
         for (var metric : metrics) {
             var valueArrayOne = CentralityCalculator.calculateCentrality(metric, x);
-            var valueArrayOneNorm = Normalizer.normalizeNodeMetricArray(valueArrayOne,
-                    x.nodes().size(), metric);
-            var meanOne = CentralTendencies.calculateTendency(valueArrayOneNorm, tendency);
+           // var valueArrayOneNorm = Normalizer.normalizeNodeMetricArray(valueArrayOne,
+           //         x.nodes().size(), metric);
+            var meanOne = CentralTendencies.calculateTendency(valueArrayOne, tendency);
             var valueArrayTwo = CentralityCalculator.calculateCentrality(metric, y);
-            var valueArrayTwoNorm = Normalizer.normalizeNodeMetricArray(valueArrayTwo,
-                    y.nodes().size(), metric);
-            var meanTwo = CentralTendencies.calculateTendency(valueArrayTwoNorm, tendency);
+           // var valueArrayTwoNorm = Normalizer.normalizeNodeMetricArray(valueArrayTwo,
+           //         y.nodes().size(), metric);
+            var meanTwo = CentralTendencies.calculateTendency(valueArrayTwo, tendency);
             meansOne[j] = meanOne; meansTwo[j] = meanTwo; j++;
         }
         var res = DistanceMeasures.calculateDistance(meansOne, meansTwo, distanceMeasure);
-        res = 1 - Normalizer.normalizeDistanceMeasure(res, metrics.length, distanceMeasure);
+        res = 1 - Normalizer.normalizeDistanceMeasure(res, distanceMeasure, metrics, Math.max(x.nodes().size(), y.nodes().size()));
         long endTime = System.nanoTime();
         //System.out.print('x');
         resList.add(res);

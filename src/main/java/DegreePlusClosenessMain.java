@@ -17,7 +17,7 @@ public class DegreePlusClosenessMain {
 
         Class<?> thisClass = Class.forName("DegreePlusClosenessMain");
 
-        for (int i = 40; i<=51; i++) {
+        for (int i = 1; i<=51; i++) {
             System.out.println("TESTCASE " + i);
             Method method = thisClass.getMethod("testcase" + i);
             long startTime = System.nanoTime();
@@ -96,7 +96,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("nodes", 150); secondGraph.put("edgesPerIteration", 9);
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase47() {
@@ -114,7 +114,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("nodes", 100); secondGraph.put("edgesPerIteration", 6);
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase46() {
@@ -132,7 +132,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("nodes", 50); secondGraph.put("edgesPerIteration", 3);
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase45() {
@@ -192,7 +192,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase42() {
@@ -232,7 +232,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase40() {
@@ -252,7 +252,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase39() {
@@ -272,7 +272,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase38() {
@@ -292,7 +292,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase37() {
@@ -312,7 +312,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase36() {
@@ -332,7 +332,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.9); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase35() {
@@ -352,7 +352,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase34() {
@@ -421,7 +421,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase31() {
@@ -441,7 +441,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase30() {
@@ -461,7 +461,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase29() {
@@ -481,7 +481,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase28() {
@@ -501,7 +501,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase27() {
@@ -521,7 +521,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.9); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase26() {
@@ -541,7 +541,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase25() {
@@ -610,7 +610,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase22() {
@@ -630,7 +630,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase21() {
@@ -702,7 +702,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("nodes", 150); secondGraph.put("edgesPerIteration", 9);
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase17() {
@@ -720,7 +720,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("nodes", 100); secondGraph.put("edgesPerIteration", 6);
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase16() {
@@ -738,7 +738,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("nodes", 50); secondGraph.put("edgesPerIteration", 3);
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase15() {
@@ -798,7 +798,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase12() {
@@ -838,7 +838,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase10() {
@@ -858,7 +858,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase9() {
@@ -878,7 +878,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase8() {
@@ -898,7 +898,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase7() {
@@ -918,7 +918,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase6() {
@@ -938,7 +938,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.9); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase5() {
@@ -958,7 +958,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase4() {
@@ -1027,7 +1027,7 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase1() {
@@ -1047,6 +1047,6 @@ public class DegreePlusClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 }

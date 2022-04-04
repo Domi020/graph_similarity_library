@@ -5,19 +5,33 @@ import generators.GraphGeneratorMethod;
 import org.apache.commons.math3.util.Pair;
 import tendancy.Tendency;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class DegreeSingleMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        /*
         long startTime = System.nanoTime();
 
         testcase31();
 
         long stopTime = System.nanoTime();
         System.out.println("Time: " + (stopTime - startTime));
+        */
+        Class<?> thisClass = Class.forName("DegreeSingleMain");
+
+        for (int i = 8; i<=9; i++) {
+            System.out.println("TESTCASE " + i);
+            Method method = thisClass.getMethod("testcase" + i);
+            long startTime = System.nanoTime();
+            method.invoke(null);
+            long stopTime = System.nanoTime();
+            System.out.println("Time: " + (stopTime - startTime));
+        }
     }
 
     public static void testcase48() {
@@ -37,7 +51,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase47() {
@@ -57,7 +71,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase46() {
@@ -77,7 +91,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase45() {
@@ -97,7 +111,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.9); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase44() {
@@ -117,7 +131,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase43() {
@@ -186,7 +200,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase40() {
@@ -206,7 +220,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase39() {
@@ -226,7 +240,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase38() {
@@ -246,7 +260,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase37() {
@@ -266,7 +280,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase36() {
@@ -286,7 +300,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.9); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase35() {
@@ -306,7 +320,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase34() {
@@ -375,7 +389,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase31() {
@@ -395,7 +409,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase30() {
@@ -415,7 +429,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase29() {
@@ -435,7 +449,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase28() {
@@ -455,7 +469,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase27() {
@@ -475,7 +489,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.9); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase26() {
@@ -495,7 +509,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase25() {
@@ -564,7 +578,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase22() {
@@ -584,7 +598,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase21() {
@@ -656,7 +670,7 @@ public class DegreeSingleMain {
         secondGraph.put("nodes", 150); secondGraph.put("edgesPerIteration", 9);
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase17() {
@@ -674,7 +688,7 @@ public class DegreeSingleMain {
         secondGraph.put("nodes", 100); secondGraph.put("edgesPerIteration", 6);
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase16() {
@@ -692,7 +706,7 @@ public class DegreeSingleMain {
         secondGraph.put("nodes", 50); secondGraph.put("edgesPerIteration", 3);
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase15() {
@@ -752,7 +766,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase12() {
@@ -772,7 +786,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase11() {
@@ -792,7 +806,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase10() {
@@ -812,7 +826,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase9() {
@@ -832,7 +846,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase8() {
@@ -852,7 +866,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase7() {
@@ -872,7 +886,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase6() {
@@ -892,7 +906,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.9); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase5() {
@@ -912,7 +926,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase4() {
@@ -932,7 +946,7 @@ public class DegreeSingleMain {
 
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase3() {
@@ -961,7 +975,7 @@ public class DegreeSingleMain {
 
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase2() {
@@ -981,7 +995,7 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase1() {
@@ -1001,6 +1015,6 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 }
