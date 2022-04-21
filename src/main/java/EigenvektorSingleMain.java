@@ -5,19 +5,25 @@ import generators.GraphGeneratorMethod;
 import org.apache.commons.math3.util.Pair;
 import tendancy.Tendency;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class EigenvektorSingleMain {
-    public static void main(String[] args) {
-        long startTime = System.nanoTime();
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Class<?> thisClass = Class.forName("EigenvektorSingleMain");
 
-        testcase21();
-
-        long stopTime = System.nanoTime();
-        System.out.println("Time: " + (stopTime - startTime));
+        for (int i = 5; i<=21; i++) {
+            System.out.println("TESTCASE " + i);
+            Method method = thisClass.getMethod("testcase" + i);
+            long startTime = System.nanoTime();
+            method.invoke(null);
+            long stopTime = System.nanoTime();
+            System.out.println("Time: " + (stopTime - startTime));
+        }
     }
 
     public static void testcase21() {
@@ -265,7 +271,7 @@ public class EigenvektorSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase8() {
@@ -285,7 +291,7 @@ public class EigenvektorSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void testcase7() {
@@ -305,7 +311,7 @@ public class EigenvektorSingleMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
     public static void testcase6() {
@@ -325,7 +331,7 @@ public class EigenvektorSingleMain {
         secondGraph.put("gamma", 0.9); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
     public static void testcase5() {
@@ -345,7 +351,7 @@ public class EigenvektorSingleMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
     public static void testcase4() {
@@ -365,7 +371,7 @@ public class EigenvektorSingleMain {
 
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
     public static void testcase3() {
@@ -394,7 +400,7 @@ public class EigenvektorSingleMain {
 
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
     public static void testcase2() {
@@ -414,7 +420,7 @@ public class EigenvektorSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
     public static void testcase1() {
@@ -434,6 +440,6 @@ public class EigenvektorSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 }

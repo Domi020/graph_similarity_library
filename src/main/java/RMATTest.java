@@ -14,7 +14,7 @@ public class RMATTest {
 
         long startTime = System.nanoTime();
 
-        testcase12();
+        testcase2();
 
         long stopTime = System.nanoTime();
         System.out.println("Time: " + (stopTime - startTime));
