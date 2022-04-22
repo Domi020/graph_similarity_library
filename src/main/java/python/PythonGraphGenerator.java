@@ -1,6 +1,8 @@
 package python;
 
 import dhbw.graphmetrics.graph.Graph;
+import dhbw.graphmetrics.metrics.NodeMetric;
+import dhbw.graphmetrics.metrics.boundary.MetricsCalculation;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -52,6 +54,28 @@ public class PythonGraphGenerator {
         if (writeToFile) {
             writeScriptToFile(result.toString());
         }
+        return result.toString();
+    }
+
+    public static String generateHistogram(Graph<Integer, Integer> x) {
+        StringBuilder result = new StringBuilder("import networkx as nx\n");
+        result.append("import matplotlib.pyplot as plt\n");
+        result.append("plt.hist([");
+        StringBuilder xAxis = new StringBuilder("[0, ");
+        int i = 1;
+        for (var node : x.nodes()) {
+            result.append(MetricsCalculation.calculateNodeMetric(x, node, NodeMetric.DEGREE));
+            result.append(", ");
+            xAxis.append(i++);
+            xAxis.append(", ");
+        }
+        result.delete(result.length() - 2, result.length() - 1);
+        xAxis.delete(xAxis.length() - 2, xAxis.length() - 1);
+        result.append("], ");
+        xAxis.append("])\n");
+        result.append(xAxis);
+        result.append("plt.show()\n");
+        writeScriptToFile(result.toString());
         return result.toString();
     }
     public static String generateGraphString(Graph<Integer, Integer> graph, String graphName) {

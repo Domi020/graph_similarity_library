@@ -91,7 +91,8 @@ public class GraphCompare {
 
         if (printGEDScript) {
             //PythonGraphGenerator.generateGEDTest(x, y, true);
-            PythonGraphGenerator.generateGraphDrawer(x, y, true);
+            //PythonGraphGenerator.generateGraphDrawer(x, y, true);
+            PythonGraphGenerator.generateHistogram(y);
         }
         Double[] meansOne = new Double[metrics.length];
         Double[] meansTwo = new Double[metrics.length];
