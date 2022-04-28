@@ -13,6 +13,7 @@ import generators.GraphGenerators;
 import generators.RMATGenerator;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.math3.util.Precision;
 import python.PythonGraphGenerator;
 import tendancy.CentralTendencies;
 import tendancy.Tendency;
@@ -76,12 +77,19 @@ public class GraphCompare {
         avg = avg / (double) amount;
         double variance = calcVariance(resArrayList, avg);
         LongSummaryStatistics timeStats = timeList.stream().mapToLong(Long::longValue).summaryStatistics();
-        System.out.println("Min: " + Double.toString(min).replace('.', ',')
-                + "\nMax: " + Double.toString(max).replace('.', ',') +
-                "\navg: " + Double.toString(avg).replace('.', ',') +
+
+        System.out.println("Min: " + Double.toString(Precision.round(min, 6)).replace('.', ',')
+                + "\nMax: " + Double.toString(Precision.round(max, 6)).replace('.', ',') +
+                "\navg: " + Double.toString(Precision.round(avg, 6)).replace('.', ',') +
                 "\nVar: " + Double.toString(variance).replace('.', ',') +
-                "\nAvgTime: " + Double.toString(timeStats.getAverage()).replace('.', ',')
-                + "\nSumTime: " + timeStats.getSum());
+                "\nAvgTime: " + Double.toString(Precision.round(timeStats.getAverage() / 1000000.0, 2)).replace('.', ',')
+                + "\nSumTime: " + timeStats.getSum() / 1000000);
+
+        System.out.println(Double.toString(Precision.round(min, 6)).replace('.', ',') + " & " +
+                Double.toString(Precision.round(max, 6)).replace('.', ',') + " & " +
+                Double.toString(Precision.round(avg, 6)).replace('.', ',') + " & " +
+                Double.toString(variance).replace('.', ',') + " & " +
+                Double.toString(Precision.round(timeStats.getAverage() / 1000000.0, 2)).replace('.', ',') + " & ");
         executor.shutdown();
     }
 
@@ -91,8 +99,8 @@ public class GraphCompare {
 
         if (printGEDScript) {
             //PythonGraphGenerator.generateGEDTest(x, y, true);
-            //PythonGraphGenerator.generateGraphDrawer(x, y, true);
-            PythonGraphGenerator.generateHistogram(y);
+            PythonGraphGenerator.generateGraphDrawer(x, y, true);
+            //PythonGraphGenerator.generateHistogram(y);
         }
         Double[] meansOne = new Double[metrics.length];
         Double[] meansTwo = new Double[metrics.length];
