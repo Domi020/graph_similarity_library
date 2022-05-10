@@ -16,8 +16,8 @@ public class DegreeSingleMain {
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Class<?> thisClass = Class.forName("DegreeSingleMain");
 
-        for (int i = 18; i<=18; i++) {
-            System.out.println("TESTCASE " + i);
+        for (int i = 1; i<=18; i++) {
+            //System.out.println("TESTCASE " + i);
             Method method = thisClass.getMethod("DC" + i);
             long startTime = System.nanoTime();
             method.invoke(null);
@@ -1001,7 +1001,7 @@ public class DegreeSingleMain {
         test.doDualGraphTest(1000);
     }
 
-    public static void testcase9() {
+    public static void DC9() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1018,10 +1018,10 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
-    public static void testcase8() {
+    public static void DC8() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1038,10 +1038,10 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
-    public static void testcase7() {
+    public static void DC7() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1058,10 +1058,10 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
-    public static void testcase6() {
+    public static void DC6() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1078,10 +1078,10 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.9); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
-    public static void testcase5() {
+    public static void DC5() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1098,10 +1098,10 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
-    public static void testcase4() {
+    public static void DC4() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1118,10 +1118,10 @@ public class DegreeSingleMain {
 
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
-    public static void testcase3() {
+    public static void DC3() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1147,10 +1147,10 @@ public class DegreeSingleMain {
 
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
-    public static void testcase2() {
+    public static void DC2() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1167,10 +1167,10 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
-    public static void testcase1() {
+    public static void DC1() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1187,6 +1187,6 @@ public class DegreeSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 }

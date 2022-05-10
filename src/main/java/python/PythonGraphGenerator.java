@@ -74,6 +74,9 @@ public class PythonGraphGenerator {
         result.append("], ");
         xAxis.append("])\n");
         result.append(xAxis);
+        result.append("plt.xlabel(\"Knotengrad\")\n");
+        result.append("plt.ylabel(\"Anzahl Knoten\")\n");
+        //result.append("plt.title(\"Anzahl Knoten mit entsprechendem Knotengrad\")\n");
         result.append("plt.show()\n");
         writeScriptToFile(result.toString());
         return result.toString();

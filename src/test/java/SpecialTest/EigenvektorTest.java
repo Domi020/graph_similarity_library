@@ -26,8 +26,8 @@ public class EigenvektorTest {
         System.out.println(MetricsCalculation.calculateNodeMetric(graph, 4, NodeMetric.EIGENVECTOR_CENTRALITY_NORMALIZED));
 */
 
-        Double[] one = new Double[2]; one[0] = 2.9; one[1] = 8232.0;
-        Double[] two = new Double[2]; two[0] = 3.0; two[1] = 4116.0;
+        Double[] one = new Double[2]; one[0] = 800.0; one[1] = 0.4;
+        Double[] two = new Double[2]; two[0] = 800.0; two[1] = 0.8;
         System.out.println(DistanceMeasures.calculateDistance(one, two, DistanceMeasure.CANBERRA));
     }
 }

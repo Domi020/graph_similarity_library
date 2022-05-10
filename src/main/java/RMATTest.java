@@ -14,7 +14,7 @@ public class RMATTest {
 
         long startTime = System.nanoTime();
 
-        testcase2();
+        testcase3();
 
         long stopTime = System.nanoTime();
         System.out.println("Time: " + (stopTime - startTime));
@@ -253,8 +253,7 @@ public class RMATTest {
 
     public static void testcase1() {
         GraphCompare test = new GraphCompare();
-        test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED, NodeMetric.DEGREE_CENTRALITY,
-                NodeMetric.EIGENVECTOR_CENTRALITY});
+        test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
         test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(true);
