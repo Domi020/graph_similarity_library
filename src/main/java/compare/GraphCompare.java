@@ -30,6 +30,7 @@ public class GraphCompare {
 
 
     private Tendency tendency;
+    private Tendency[] tendencies = null;
     private DistanceMeasure distanceMeasure;
     private NodeMetric[] metrics;
 
@@ -79,12 +80,12 @@ public class GraphCompare {
         double variance = calcVariance(resArrayList, avg);
         LongSummaryStatistics timeStats = timeList.stream().mapToLong(Long::longValue).summaryStatistics();
 
-        System.out.println("Min: " + Double.toString(Precision.round(min, 6)).replace('.', ',')
+       /* System.out.println("Min: " + Double.toString(Precision.round(min, 6)).replace('.', ',')
                 + "\nMax: " + Double.toString(Precision.round(max, 6)).replace('.', ',') +
                 "\navg: " + Double.toString(Precision.round(avg, 6)).replace('.', ',') +
                 "\nVar: " + Double.toString(variance).replace('.', ',') +
                 "\nAvgTime: " + Double.toString(Precision.round(timeStats.getAverage() / 1000000.0, 2)).replace('.', ',')
-                + "\nSumTime: " + timeStats.getSum() / 1000000);
+                + "\nSumTime: " + timeStats.getSum() / 1000000); */
 
         var avgMetricTime = metricTimes.stream()
                         .mapToDouble(Long::doubleValue)

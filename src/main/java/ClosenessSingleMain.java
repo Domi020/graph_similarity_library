@@ -17,13 +17,14 @@ public class ClosenessSingleMain {
 
         Class<?> thisClass = Class.forName("ClosenessSingleMain");
 
-        for (int i = 18; i<=18; i++) {
-            System.out.println("TESTCASE " + i);
+        for (int i = 1; i<=9; i++) {
+            //System.out.println("TESTCASE " + i);
             Method method = thisClass.getMethod("CC" + i);
             long startTime = System.nanoTime();
             method.invoke(null);
             long stopTime = System.nanoTime();
-            System.out.println("Time: " + ((stopTime - startTime) / 1000000));
+            //System.out.println("Time: " + ((stopTime - startTime) / 1000000));
+            System.out.print(((stopTime - startTime) / 1000000) + " \\\\ \\hline\n");
         }
     }
 
@@ -44,7 +45,7 @@ public class ClosenessSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
     public static void CC17() {
@@ -64,7 +65,7 @@ public class ClosenessSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
     public static void CC16() {
@@ -164,7 +165,7 @@ public class ClosenessSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
     public static void CC11() {
@@ -184,7 +185,7 @@ public class ClosenessSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
     public static void CC10() {
@@ -197,20 +198,20 @@ public class ClosenessSingleMain {
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
         var options = new ArrayList<Map<String, Object>>();
         var firstGraph = new HashMap<String, Object>();
-        firstGraph.put("k", 8); firstGraph.put("M", 13056); firstGraph.put("alpha", 0.2); firstGraph.put("beta", 0.2);
-        firstGraph.put("gamma", 0.3); firstGraph.put("mode", "onlyBelow");
+        firstGraph.put("k", 8); firstGraph.put("M", 3264); firstGraph.put("alpha",0.9); firstGraph.put("beta", 0.03);
+        firstGraph.put("gamma", 0.03); firstGraph.put("mode", "onlyBelow");
         var secondGraph = new HashMap<String, Object>();
-        secondGraph.put("k", 6); secondGraph.put("M", 806); secondGraph.put("alpha", 0.9); secondGraph.put("beta", 0.03);
-        secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
+        secondGraph.put("k", 6); secondGraph.put("M", 202); secondGraph.put("alpha", 0.2); secondGraph.put("beta", 0.2);
+        secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
     public static void testcase48() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
         test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
@@ -230,7 +231,7 @@ public class ClosenessSingleMain {
     public static void testcase47() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
         test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
@@ -250,7 +251,7 @@ public class ClosenessSingleMain {
     public static void testcase46() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
         test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
@@ -270,7 +271,7 @@ public class ClosenessSingleMain {
     public static void testcase45() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
         test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
@@ -290,7 +291,7 @@ public class ClosenessSingleMain {
     public static void testcase44() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
         test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
@@ -310,7 +311,7 @@ public class ClosenessSingleMain {
     public static void testcase43() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
         test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
@@ -330,7 +331,7 @@ public class ClosenessSingleMain {
     public static void testcase42() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
         test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
@@ -359,7 +360,7 @@ public class ClosenessSingleMain {
     public static void testcase41() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
         test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
@@ -379,7 +380,7 @@ public class ClosenessSingleMain {
     public static void testcase40() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
         test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
@@ -399,8 +400,8 @@ public class ClosenessSingleMain {
     public static void testcase39() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -419,8 +420,8 @@ public class ClosenessSingleMain {
     public static void testcase38() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -439,8 +440,8 @@ public class ClosenessSingleMain {
     public static void testcase37() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -459,8 +460,8 @@ public class ClosenessSingleMain {
     public static void testcase36() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -479,8 +480,8 @@ public class ClosenessSingleMain {
     public static void testcase35() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -499,8 +500,8 @@ public class ClosenessSingleMain {
     public static void testcase34() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.COMPLETE, GraphGeneratorMethod.WITHOUT_EDGES});
@@ -519,8 +520,8 @@ public class ClosenessSingleMain {
     public static void testcase33() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.UNIQUE, GraphGeneratorMethod.UNIQUE});
@@ -548,8 +549,8 @@ public class ClosenessSingleMain {
     public static void testcase32() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -568,8 +569,8 @@ public class ClosenessSingleMain {
     public static void testcase31() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
-        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -589,7 +590,7 @@ public class ClosenessSingleMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -609,7 +610,7 @@ public class ClosenessSingleMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -629,7 +630,7 @@ public class ClosenessSingleMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -649,7 +650,7 @@ public class ClosenessSingleMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -669,7 +670,7 @@ public class ClosenessSingleMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -689,7 +690,7 @@ public class ClosenessSingleMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.COMPLETE, GraphGeneratorMethod.WITHOUT_EDGES});
@@ -709,7 +710,7 @@ public class ClosenessSingleMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.UNIQUE, GraphGeneratorMethod.UNIQUE});
@@ -738,7 +739,7 @@ public class ClosenessSingleMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -758,7 +759,7 @@ public class ClosenessSingleMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.GEOMETRIC);
+        test.setTendency(Tendency.MEAN);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -939,7 +940,7 @@ public class ClosenessSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
     public static void testcase12() {
@@ -979,7 +980,7 @@ public class ClosenessSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
     public static void testcase10() {
@@ -999,10 +1000,10 @@ public class ClosenessSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
-    public static void testcase9() {
+    public static void CC9() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1019,10 +1020,10 @@ public class ClosenessSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
-    public static void testcase8() {
+    public static void CC8() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1039,10 +1040,10 @@ public class ClosenessSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
-    public static void testcase7() {
+    public static void CC7() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1059,10 +1060,10 @@ public class ClosenessSingleMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
-    public static void testcase6() {
+    public static void CC6() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1079,10 +1080,10 @@ public class ClosenessSingleMain {
         secondGraph.put("gamma", 0.9); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
-    public static void testcase5() {
+    public static void CC5() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1099,10 +1100,10 @@ public class ClosenessSingleMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
-    public static void testcase4() {
+    public static void CC4() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1119,10 +1120,10 @@ public class ClosenessSingleMain {
 
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
-    public static void testcase3() {
+    public static void CC3() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1148,10 +1149,10 @@ public class ClosenessSingleMain {
 
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
-    public static void testcase2() {
+    public static void CC2() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1168,10 +1169,10 @@ public class ClosenessSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
-    public static void testcase1() {
+    public static void CC1() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
@@ -1188,6 +1189,6 @@ public class ClosenessSingleMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 }

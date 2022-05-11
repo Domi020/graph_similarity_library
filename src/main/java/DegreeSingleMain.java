@@ -22,15 +22,16 @@ public class DegreeSingleMain {
             long startTime = System.nanoTime();
             method.invoke(null);
             long stopTime = System.nanoTime();
-            System.out.println("Time: " + ((stopTime - startTime) / 1000000));
+            //System.out.println("Time: " + ((stopTime - startTime) / 1000000));
+            System.out.print(((stopTime - startTime) / 1000000) + " \\\\ \\hline\n");
         }
     }
 
     public static void DC18() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -49,8 +50,8 @@ public class DegreeSingleMain {
     public static void DC17() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -69,8 +70,8 @@ public class DegreeSingleMain {
     public static void DC16() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -89,8 +90,8 @@ public class DegreeSingleMain {
     public static void DC15() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(true);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -109,8 +110,8 @@ public class DegreeSingleMain {
     public static void DC14() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(true);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -129,8 +130,8 @@ public class DegreeSingleMain {
     public static void DC13() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -149,8 +150,8 @@ public class DegreeSingleMain {
     public static void DC12() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -169,8 +170,8 @@ public class DegreeSingleMain {
     public static void DC11() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -189,28 +190,28 @@ public class DegreeSingleMain {
     public static void DC10() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
         var options = new ArrayList<Map<String, Object>>();
         var firstGraph = new HashMap<String, Object>();
-        firstGraph.put("k", 8); firstGraph.put("M", 13056); firstGraph.put("alpha", 0.2); firstGraph.put("beta", 0.2);
-        firstGraph.put("gamma", 0.3); firstGraph.put("mode", "onlyBelow");
+        firstGraph.put("k", 8); firstGraph.put("M", 3264); firstGraph.put("alpha", 0.9); firstGraph.put("beta", 0.03);
+        firstGraph.put("gamma", 0.03); firstGraph.put("mode", "onlyBelow");
         var secondGraph = new HashMap<String, Object>();
-        secondGraph.put("k", 6); secondGraph.put("M", 806); secondGraph.put("alpha", 0.9); secondGraph.put("beta", 0.03);
-        secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
+        secondGraph.put("k", 6); secondGraph.put("M", 202); secondGraph.put("alpha", 0.2); secondGraph.put("beta", 0.2);
+        secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
     public static void testcase48() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.MEAN);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -230,7 +231,7 @@ public class DegreeSingleMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.MEAN);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -250,7 +251,7 @@ public class DegreeSingleMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.MEAN);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -270,7 +271,7 @@ public class DegreeSingleMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.MEAN);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -290,7 +291,7 @@ public class DegreeSingleMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.MEAN);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -310,7 +311,7 @@ public class DegreeSingleMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.MEAN);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.COMPLETE, GraphGeneratorMethod.WITHOUT_EDGES});
@@ -330,7 +331,7 @@ public class DegreeSingleMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.MEAN);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.UNIQUE, GraphGeneratorMethod.UNIQUE});
@@ -359,7 +360,7 @@ public class DegreeSingleMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.MEAN);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -379,7 +380,7 @@ public class DegreeSingleMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendency(Tendency.MEAN);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -587,7 +588,7 @@ public class DegreeSingleMain {
     public static void testcase30() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
         test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
@@ -607,7 +608,7 @@ public class DegreeSingleMain {
     public static void testcase29() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
         test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
@@ -627,7 +628,7 @@ public class DegreeSingleMain {
     public static void testcase28() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
         test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
@@ -647,7 +648,7 @@ public class DegreeSingleMain {
     public static void testcase27() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
         test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
@@ -667,7 +668,7 @@ public class DegreeSingleMain {
     public static void testcase26() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
         test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
@@ -687,7 +688,7 @@ public class DegreeSingleMain {
     public static void testcase25() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
         test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
@@ -707,7 +708,7 @@ public class DegreeSingleMain {
     public static void testcase24() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
         test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
@@ -736,7 +737,7 @@ public class DegreeSingleMain {
     public static void testcase23() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
         test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
@@ -756,7 +757,7 @@ public class DegreeSingleMain {
     public static void testcase22() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
         test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
@@ -776,8 +777,8 @@ public class DegreeSingleMain {
     public static void testcase21() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.BARABASI_ALBERT, GraphGeneratorMethod.BARABASI_ALBERT});
@@ -794,8 +795,8 @@ public class DegreeSingleMain {
     public static void testcase20() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.BARABASI_ALBERT, GraphGeneratorMethod.BARABASI_ALBERT});
@@ -812,8 +813,8 @@ public class DegreeSingleMain {
     public static void testcase19() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.BARABASI_ALBERT, GraphGeneratorMethod.BARABASI_ALBERT});
@@ -830,8 +831,8 @@ public class DegreeSingleMain {
     public static void testcase18() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.BARABASI_ALBERT, GraphGeneratorMethod.BARABASI_ALBERT});
@@ -848,8 +849,8 @@ public class DegreeSingleMain {
     public static void testcase17() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.BARABASI_ALBERT, GraphGeneratorMethod.BARABASI_ALBERT});
@@ -866,8 +867,8 @@ public class DegreeSingleMain {
     public static void testcase16() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.BARABASI_ALBERT, GraphGeneratorMethod.BARABASI_ALBERT});
@@ -884,8 +885,8 @@ public class DegreeSingleMain {
     public static void testcase15() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -904,8 +905,8 @@ public class DegreeSingleMain {
     public static void testcase14() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -924,8 +925,8 @@ public class DegreeSingleMain {
     public static void testcase13() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -944,8 +945,8 @@ public class DegreeSingleMain {
     public static void testcase12() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -964,8 +965,8 @@ public class DegreeSingleMain {
     public static void testcase11() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -984,8 +985,8 @@ public class DegreeSingleMain {
     public static void testcase10() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -1004,8 +1005,8 @@ public class DegreeSingleMain {
     public static void DC9() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -1024,8 +1025,8 @@ public class DegreeSingleMain {
     public static void DC8() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -1044,8 +1045,8 @@ public class DegreeSingleMain {
     public static void DC7() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -1064,8 +1065,8 @@ public class DegreeSingleMain {
     public static void DC6() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -1084,8 +1085,8 @@ public class DegreeSingleMain {
     public static void DC5() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -1104,8 +1105,8 @@ public class DegreeSingleMain {
     public static void DC4() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.COMPLETE, GraphGeneratorMethod.WITHOUT_EDGES});
@@ -1124,8 +1125,8 @@ public class DegreeSingleMain {
     public static void DC3() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.UNIQUE, GraphGeneratorMethod.UNIQUE});
@@ -1153,8 +1154,8 @@ public class DegreeSingleMain {
     public static void DC2() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -1173,8 +1174,8 @@ public class DegreeSingleMain {
     public static void DC1() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY});
-        test.setDistanceMeasure(DistanceMeasure.EUCLIDEAN);
-        test.setTendency(Tendency.MEAN);
+        test.setDistanceMeasure(DistanceMeasure.CANBERRA);
+        test.setTendency(Tendency.GEOMETRIC);
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
