@@ -30,6 +30,7 @@ public class GraphCompare {
 
 
     private Tendency tendency;
+    private Tendency[] tendencies = null;
     private DistanceMeasure distanceMeasure;
     private NodeMetric[] metrics;
 
@@ -78,14 +79,14 @@ public class GraphCompare {
         double variance = calcVariance(resArrayList, avg);
         LongSummaryStatistics timeStats = timeList.stream().mapToLong(Long::longValue).summaryStatistics();
 
-        System.out.println("Min: " + Double.toString(Precision.round(min, 6)).replace('.', ',')
+       /* System.out.println("Min: " + Double.toString(Precision.round(min, 6)).replace('.', ',')
                 + "\nMax: " + Double.toString(Precision.round(max, 6)).replace('.', ',') +
                 "\navg: " + Double.toString(Precision.round(avg, 6)).replace('.', ',') +
                 "\nVar: " + Double.toString(variance).replace('.', ',') +
                 "\nAvgTime: " + Double.toString(Precision.round(timeStats.getAverage() / 1000000.0, 2)).replace('.', ',')
-                + "\nSumTime: " + timeStats.getSum() / 1000000);
+                + "\nSumTime: " + timeStats.getSum() / 1000000); */
 
-        System.out.println(Double.toString(Precision.round(min, 6)).replace('.', ',') + " & " +
+        System.out.print(Double.toString(Precision.round(min, 6)).replace('.', ',') + " & " +
                 Double.toString(Precision.round(max, 6)).replace('.', ',') + " & " +
                 Double.toString(Precision.round(avg, 6)).replace('.', ',') + " & " +
                 Double.toString(variance).replace('.', ',') + " & " +
@@ -110,11 +111,13 @@ public class GraphCompare {
             var valueArrayOne = CentralityCalculator.calculateCentrality(metric, x);
             var valueArrayOneNorm = Normalizer.normalizeNodeMetricArray(valueArrayOne,
                     x.nodes().size(), metric);
-            var meanOne = CentralTendencies.calculateTendency(valueArrayOneNorm, tendency);
+            var meanOne = CentralTendencies.calculateTendency(valueArrayOneNorm, tendencies != null ?
+                    tendencies[j] : tendency);
             var valueArrayTwo = CentralityCalculator.calculateCentrality(metric, y);
             var valueArrayTwoNorm = Normalizer.normalizeNodeMetricArray(valueArrayTwo,
                     y.nodes().size(), metric);
-            var meanTwo = CentralTendencies.calculateTendency(valueArrayTwoNorm, tendency);
+            var meanTwo = CentralTendencies.calculateTendency(valueArrayTwoNorm, tendencies != null ?
+                    tendencies[j] : tendency);
             meansOne[j] = meanOne; meansTwo[j] = meanTwo; j++;
         }
         var res = DistanceMeasures.calculateDistance(meansOne, meansTwo, distanceMeasure);

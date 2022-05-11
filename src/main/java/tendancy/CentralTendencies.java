@@ -1,10 +1,14 @@
 package tendancy;
 
+import ch.obermuhlner.math.big.BigDecimalMath;
+
+import java.math.MathContext;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.math.BigDecimal;
 
 public class CentralTendencies {
 
@@ -28,15 +32,26 @@ public class CentralTendencies {
     }
 
     private static Double geometricMean(Double[] values) {
-        double x = Math.pow(Arrays.stream(values)
+       /* double x = Math.pow(Arrays.stream(values)
                 .map(val -> {
                     if (val == 0.000000000)
                         return (val + 0.000000001);
                     else
                         return val;
                 })
-                .reduce((val, res) -> val * res).get(), 1.0 / (double) values.length);
-        return Double.isNaN(x) ? 0.0 : x;
+                .reduce((val, res) -> val * res).get(), 1.0 / (double) values.length); */
+        BigDecimal res = BigDecimal.valueOf(1.0);
+        for (Double z : values) {
+            if (z == 0.000000000) {
+                z += 0.000000001;
+            }
+            res = res.multiply(BigDecimal.valueOf(z), MathContext.DECIMAL128);
+        }
+        if (Double.isNaN(res.doubleValue())) return 0.0;
+        return BigDecimalMath.pow(res, BigDecimal.valueOf(1.0 / (double) values.length), MathContext.DECIMAL128).
+                doubleValue();
+        //return Double.isNaN(res) ? 0.0 : Math.pow(res, 1.0 / (double) values.length);
+        //return Double.isNaN(x) ? 0.0 : x;
     }
 
     private static Double modus(Double[] values) {
