@@ -31,7 +31,7 @@
             <artifactId>graph_metrics_class_library</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>/home/dominik/Dokumente/GitHub/graph_similarity_library/lib/graph_metrics_class_library-1.0.jar</systemPath>
+            <systemPath>D:/ProgRepos/graph_similarity_library/lib/graph_metrics_class_library-1.0.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>ch.obermuhlner</groupId>

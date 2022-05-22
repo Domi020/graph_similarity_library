@@ -87,33 +87,34 @@ public class GraphCompare {
                 "\nAvgTime: " + Double.toString(Precision.round(timeStats.getAverage() / 1000000.0, 2)).replace('.', ',')
                 + "\nSumTime: " + timeStats.getSum() / 1000000); */
 
-        var avgMetricTime = metricTimes.stream()
-                        .mapToDouble(Long::doubleValue)
-                        .average().getAsDouble();
-        var avgNormTime = normTimes.stream()
-                .mapToDouble(Long::doubleValue)
-                .average().getAsDouble();
-        var avgTendencyTime = tendencyTimes.stream()
-                .mapToDouble(Long::doubleValue)
-                .average().getAsDouble();
-        var avgDistanceTime = distanceTimes.stream()
-                .mapToDouble(Long::doubleValue)
-                .average().getAsDouble();
-        var avgSecNormTime = secNormTimes.stream()
-                .mapToDouble(Long::doubleValue)
-                .average().getAsDouble();
+//        var avgMetricTime = metricTimes.stream()
+//                        .mapToDouble(Long::doubleValue)
+//                        .average().getAsDouble();
+//        var avgNormTime = normTimes.stream()
+//                .mapToDouble(Long::doubleValue)
+//                .average().getAsDouble();
+//        var avgTendencyTime = tendencyTimes.stream()
+//                .mapToDouble(Long::doubleValue)
+//                .average().getAsDouble();
+//        var avgDistanceTime = distanceTimes.stream()
+//                .mapToDouble(Long::doubleValue)
+//                .average().getAsDouble();
+//        var avgSecNormTime = secNormTimes.stream()
+//                .mapToDouble(Long::doubleValue)
+//                .average().getAsDouble();
 
-        /*System.out.println(Double.toString(Precision.round(min, 6)).replace('.', ',') + " & " +
+        System.out.println(Double.toString(Precision.round(min, 6)).replace('.', ',') + " & " +
                 Double.toString(Precision.round(max, 6)).replace('.', ',') + " & " +
                 Double.toString(Precision.round(avg, 6)).replace('.', ',') + " & " +
                 Double.toString(variance).replace('.', ',') + " & " +
-                Double.toString(Precision.round(timeStats.getAverage() / 1000000.0, 2)).replace('.', ',') + " & "); */
-        System.out.println(avgMetricTime + ", " + avgNormTime + ", " + avgTendencyTime + ", " + avgDistanceTime + ", "
-                + avgSecNormTime + ", ");
+                Double.toString(Precision.round(timeStats.getAverage() / 1000000.0, 2)).replace('.', ',') + " & ");
+        //System.out.println(avgMetricTime / 1000000.0 + ", " + avgNormTime / 1000000.0 + ", " + avgTendencyTime / 1000000.0 + ", " + avgDistanceTime / 1000000.0 + ", "
+       //         + avgSecNormTime / 1000000.0 + ", ");
         executor.shutdown();
     }
 
-    List<Long> metricTimes, normTimes, tendencyTimes, distanceTimes, secNormTimes = new ArrayList<>();
+    List<Long> metricTimes = new ArrayList<>(), normTimes = new ArrayList<>(), tendencyTimes = new ArrayList<>(),
+            distanceTimes = new ArrayList<>(), secNormTimes = new ArrayList<>();
 
     private void doCalcRun() {
         Graph<Integer, Integer> x = GraphGenerators.generateGraph(generatorMethods[0], generatorOptions.get(0));
@@ -137,7 +138,8 @@ public class GraphCompare {
             var valueArrayOneNorm = Normalizer.normalizeNodeMetricArray(valueArrayOne,
                     x.nodes().size(), metric);
             long timeForNorm = System.nanoTime() - startTime - timeForMetric;
-            var meanOne = CentralTendencies.calculateTendency(valueArrayOneNorm, tendency);
+            var meanOne = tendencies == null ? CentralTendencies.calculateTendency(valueArrayOneNorm, tendency) :
+                    CentralTendencies.calculateTendency(valueArrayOneNorm, tendencies[j]);
             long timeForTendency = System.nanoTime() - startTime - timeForMetric -
                     timeForNorm;
             long timeForGraphOne = System.nanoTime() - startTime;
@@ -146,7 +148,8 @@ public class GraphCompare {
             var valueArrayTwoNorm = Normalizer.normalizeNodeMetricArray(valueArrayTwo,
                     y.nodes().size(), metric);
             long timeForNormTwo = System.nanoTime() - startTime - timeForGraphOne - timeForMetricTwo;
-            var meanTwo = CentralTendencies.calculateTendency(valueArrayTwoNorm, tendency);
+            var meanTwo = tendencies == null ? CentralTendencies.calculateTendency(valueArrayTwoNorm, tendency) :
+                    CentralTendencies.calculateTendency(valueArrayTwoNorm, tendencies[j]);
             long timeForTendencyTwo = System.nanoTime() - startTime - timeForGraphOne - timeForMetricTwo -
                     timeForNormTwo;
             metricTimes = timeForMetric + timeForMetricTwo;

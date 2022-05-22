@@ -16,7 +16,7 @@ public class DegreeAndClosenessMain {
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Class<?> thisClass = Class.forName("DegreeAndClosenessMain");
 
-        for (int i = 1; i<=18; i++) {
+        for (int i = 6; i<=6; i++) {
             //System.out.println("TESTCASE " + i);
             Method method = thisClass.getMethod("DaC" + i);
             long startTime = System.nanoTime();
@@ -30,7 +30,7 @@ public class DegreeAndClosenessMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.GEOMETRIC});
+        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.MEAN});
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -50,7 +50,7 @@ public class DegreeAndClosenessMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.GEOMETRIC});
+        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.MEAN});
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -70,7 +70,7 @@ public class DegreeAndClosenessMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.GEOMETRIC});
+        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.MEAN});
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -90,7 +90,7 @@ public class DegreeAndClosenessMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.GEOMETRIC});
+        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.MEAN});
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -110,7 +110,7 @@ public class DegreeAndClosenessMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.GEOMETRIC});
+        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.MEAN});
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -130,7 +130,7 @@ public class DegreeAndClosenessMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.GEOMETRIC});
+        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.MEAN});
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -150,7 +150,7 @@ public class DegreeAndClosenessMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.GEOMETRIC});
+        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.MEAN});
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -170,7 +170,7 @@ public class DegreeAndClosenessMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.GEOMETRIC});
+        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.MEAN});
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -190,7 +190,7 @@ public class DegreeAndClosenessMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.GEOMETRIC});
+        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.MEAN});
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -210,7 +210,7 @@ public class DegreeAndClosenessMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.GEOMETRIC});
+        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.MEAN});
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -230,7 +230,7 @@ public class DegreeAndClosenessMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.GEOMETRIC});
+        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.MEAN});
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -250,8 +250,8 @@ public class DegreeAndClosenessMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.GEOMETRIC});
-        test.setPrintGEDScript(false);
+        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.MEAN});
+        test.setPrintGEDScript(true);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
         var options = new ArrayList<Map<String, Object>>();
@@ -263,54 +263,54 @@ public class DegreeAndClosenessMain {
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(10);
     }
 
     public static void DaC6() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.GEOMETRIC});
-        test.setPrintGEDScript(false);
+        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.MEAN});
+        test.setPrintGEDScript(true);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
         var options = new ArrayList<Map<String, Object>>();
         var firstGraph = new HashMap<String, Object>();
-        firstGraph.put("k", 7); firstGraph.put("M", 1000); firstGraph.put("alpha", 0.2); firstGraph.put("beta", 0.2);
-        firstGraph.put("gamma", 0.3); firstGraph.put("mode", "onlyBelow");
+        firstGraph.put("k", 7); firstGraph.put("M", 1000); firstGraph.put("alpha", 0.9); firstGraph.put("beta", 0.03);
+        firstGraph.put("gamma", 0.03); firstGraph.put("mode", "onlyBelow");
         var secondGraph = new HashMap<String, Object>();
         secondGraph.put("k", 7); secondGraph.put("M", 1000); secondGraph.put("alpha", 0.03); secondGraph.put("beta", 0.03);
         secondGraph.put("gamma", 0.9); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
     public static void DaC5() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.GEOMETRIC});
-        test.setPrintGEDScript(false);
+        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.MEAN});
+        test.setPrintGEDScript(true);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
         var options = new ArrayList<Map<String, Object>>();
         var firstGraph = new HashMap<String, Object>();
-        firstGraph.put("k", 7); firstGraph.put("M", 1000); firstGraph.put("alpha", 0.2); firstGraph.put("beta", 0.2);
-        firstGraph.put("gamma", 0.3); firstGraph.put("mode", "onlyBelow");
+        firstGraph.put("k", 7); firstGraph.put("M", 1000); firstGraph.put("alpha", 0.9); firstGraph.put("beta", 0.03);
+        firstGraph.put("gamma", 0.03); firstGraph.put("mode", "onlyBelow");
         var secondGraph = new HashMap<String, Object>();
         secondGraph.put("k", 7); secondGraph.put("M", 1000); secondGraph.put("alpha", 0.9); secondGraph.put("beta", 0.03);
         secondGraph.put("gamma", 0.03); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
     public static void DaC4() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.GEOMETRIC});
+        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.MEAN});
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.COMPLETE, GraphGeneratorMethod.WITHOUT_EDGES});
@@ -330,7 +330,7 @@ public class DegreeAndClosenessMain {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.GEOMETRIC});
+        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.MEAN});
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.UNIQUE, GraphGeneratorMethod.UNIQUE});
@@ -372,14 +372,14 @@ public class DegreeAndClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 
     public static void DaC1() {
         GraphCompare test = new GraphCompare();
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
-        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.GEOMETRIC});
+        test.setTendencies(new Tendency[]{Tendency.GEOMETRIC, Tendency.MEAN});
         test.setPrintGEDScript(false);
 
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
@@ -392,6 +392,6 @@ public class DegreeAndClosenessMain {
         secondGraph.put("gamma", 0.3); secondGraph.put("mode", "onlyBelow");
         options.add(firstGraph); options.add(secondGraph);
         test.setGeneratorOptions(options);
-        test.doDualGraphTest(1000);
+        test.doDualGraphTest(100);
     }
 }
