@@ -1,9 +1,9 @@
-import compare.GraphCompare;
+import components.compare.GraphCompare;
 import dhbw.graphmetrics.metrics.NodeMetric;
-import distance.DistanceMeasure;
-import generators.GraphGeneratorMethod;
+import components.distance.DistanceMeasure;
+import components.generators.GraphGeneratorMethod;
 import org.apache.commons.math3.util.Pair;
-import tendancy.Tendency;
+import components.tendency.Tendency;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

@@ -1,6 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
-import util.Normalizer;
+import components.normalize.Normalizer;
 
 import static dhbw.graphmetrics.metrics.NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED;
 

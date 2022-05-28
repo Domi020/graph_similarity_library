@@ -1,8 +1,9 @@
-package distance;
-
-import java.util.Vector;
-
+package components.distance;
+/**
+ * Class to calculate all necessary distance measures.
+ */
 public class DistanceMeasures {
+
 
     public static double calculateDistance(Double graphOne, Double graphTwo, DistanceMeasure measure) {
         if(measure == DistanceMeasure.CANBERRA) {
@@ -32,10 +33,6 @@ public class DistanceMeasures {
     public static double CanberraDistance(Double[] graphOne, Double[] graphTwo) {
         double sum = 0.0;
         for (int i = 0; i<graphOne.length; i++) {
- /*           if (graphOne[i] == 0.000000000)
-                graphOne[i] += 0.000000001;
-            if (graphTwo[i] == 0.000000000)
-                graphTwo[i] += 0.000000001; */
             sum += Math.abs(graphOne[i] - graphTwo[i]) / (Math.abs(graphOne[i]) + Math.abs(graphTwo[i]));
         }
         return sum;

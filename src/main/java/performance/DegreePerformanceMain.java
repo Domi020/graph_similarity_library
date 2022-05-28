@@ -1,11 +1,10 @@
 package performance;
 
-import dhbw.graphmetrics.graph.Graph;
 import dhbw.graphmetrics.metrics.NodeMetric;
-import distance.DistanceMeasure;
-import generators.GraphGeneratorMethod;
-import tendancy.Tendency;
-import compare.GraphCompare;
+import components.distance.DistanceMeasure;
+import components.generators.GraphGeneratorMethod;
+import components.tendency.Tendency;
+import components.compare.GraphCompare;
 
 import java.util.ArrayList;
 import java.util.HashMap;

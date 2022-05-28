@@ -1,18 +1,14 @@
-import compare.GraphCompare;
-import dhbw.graphmetrics.graph.Graph;
-import dhbw.graphmetrics.graph.SimpleUndirectedAdjacencyListGraph;
+import components.compare.GraphCompare;
 import dhbw.graphmetrics.metrics.NodeMetric;
-import distance.DistanceMeasure;
-import generators.GraphGeneratorMethod;
-import tendancy.Tendency;
+import components.distance.DistanceMeasure;
+import components.generators.GraphGeneratorMethod;
+import components.tendency.Tendency;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class DistanceMeasureMain {
 

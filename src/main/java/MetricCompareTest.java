@@ -1,10 +1,10 @@
-import MetricCalculators.CentralityCalculator;
+import components.MetricCalculators.CentralityCalculator;
 import dhbw.graphmetrics.metrics.NodeMetric;
-import distance.DistanceMeasure;
-import distance.DistanceMeasures;
-import generators.RMATGenerator;
-import tendancy.CentralTendencies;
-import tendancy.Tendency;
+import components.distance.DistanceMeasure;
+import components.distance.DistanceMeasures;
+import components.generators.RMATGenerator;
+import components.tendency.CentralTendencies;
+import components.tendency.Tendency;
 
 import java.util.ArrayList;
 import java.util.List;

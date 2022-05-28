@@ -1,8 +1,11 @@
-package util;
+package components.normalize;
 
 import dhbw.graphmetrics.metrics.NodeMetric;
-import distance.DistanceMeasure;
+import components.distance.DistanceMeasure;
 
+/**
+ * Service class for normalization of metric/distance measure values
+ */
 public class Normalizer {
     public static double normalizeNodeMetric(double value, int nodeNumber, NodeMetric metric) {
         switch (metric) {

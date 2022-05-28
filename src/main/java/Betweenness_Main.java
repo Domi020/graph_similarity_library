@@ -1,6 +1,6 @@
 import dhbw.graphmetrics.metrics.NodeMetric;
-import distance.DistanceMeasure;
-import tendancy.Tendency;
+import components.distance.DistanceMeasure;
+import components.tendency.Tendency;
 
 public class Betweenness_Main {
     public static void main(String[] args) {

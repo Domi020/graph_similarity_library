@@ -1,11 +1,9 @@
-import MetricCalculators.CentralityCalculator;
-import distance.DistanceMeasures;
 import org.junit.Assert;
 import org.junit.Test;
-import tendancy.CentralTendencies;
-import tendancy.Tendency;
+import components.tendency.CentralTendencies;
+import components.tendency.Tendency;
 
-public class TendancyTest {
+public class TendencyTest {
 
     @Test
     public void arithmetic_mean_correctValues() {

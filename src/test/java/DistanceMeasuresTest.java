@@ -1,5 +1,5 @@
-import distance.DistanceMeasure;
-import distance.DistanceMeasures;
+import components.distance.DistanceMeasure;
+import components.distance.DistanceMeasures;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,28 +1,22 @@
-package compare;
+package components.compare;
 
-import MetricCalculators.CentralityCalculator;
+import components.MetricCalculators.CentralityCalculator;
 import dhbw.graphmetrics.graph.Graph;
-import dhbw.graphmetrics.metrics.GraphMetric;
 import dhbw.graphmetrics.metrics.NodeMetric;
-import dhbw.graphmetrics.metrics.boundary.MetricsCalculation;
-import distance.DistanceMeasure;
-import distance.DistanceMeasures;
-import generators.BarabasiAlbertGenerator;
-import generators.GraphGeneratorMethod;
-import generators.GraphGenerators;
-import generators.RMATGenerator;
+import components.distance.DistanceMeasure;
+import components.distance.DistanceMeasures;
+import components.generators.GraphGeneratorMethod;
+import components.generators.GraphGenerators;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.math3.util.Precision;
-import python.PythonGraphGenerator;
-import tendancy.CentralTendencies;
-import tendancy.Tendency;
-import util.Normalizer;
+import components.python.PythonGenerator;
+import components.tendency.CentralTendencies;
+import components.tendency.Tendency;
+import components.normalize.Normalizer;
 
 import java.util.*;
 import java.util.concurrent.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Stream;
 
 @Getter
 @Setter
@@ -79,18 +73,13 @@ public class GraphCompare {
         double variance = calcVariance(resArrayList, avg);
         LongSummaryStatistics timeStats = timeList.stream().mapToLong(Long::longValue).summaryStatistics();
 
-       /* System.out.println("Min: " + Double.toString(Precision.round(min, 6)).replace('.', ',')
+        System.out.println("Min: " + Double.toString(Precision.round(min, 6)).replace('.', ',')
                 + "\nMax: " + Double.toString(Precision.round(max, 6)).replace('.', ',') +
                 "\navg: " + Double.toString(Precision.round(avg, 6)).replace('.', ',') +
                 "\nVar: " + Double.toString(variance).replace('.', ',') +
                 "\nAvgTime: " + Double.toString(Precision.round(timeStats.getAverage() / 1000000.0, 2)).replace('.', ',')
-                + "\nSumTime: " + timeStats.getSum() / 1000000); */
+                + "\nSumTime: " + timeStats.getSum() / 1000000);
 
-        System.out.print(Double.toString(Precision.round(min, 6)).replace('.', ',') + " & " +
-                Double.toString(Precision.round(max, 6)).replace('.', ',') + " & " +
-                Double.toString(Precision.round(avg, 6)).replace('.', ',') + " & " +
-                Double.toString(variance).replace('.', ',') + " & " +
-                Double.toString(Precision.round(timeStats.getAverage() / 1000000.0, 2)).replace('.', ',') + " & ");
         executor.shutdown();
     }
 
@@ -100,7 +89,7 @@ public class GraphCompare {
 
         if (printGEDScript) {
             //PythonGraphGenerator.generateGEDTest(x, y, true);
-            PythonGraphGenerator.generateGraphDrawer(x, y, true);
+            PythonGenerator.generateGraphDrawer(x, y, true);
             //PythonGraphGenerator.generateHistogram(y);
         }
         Double[] meansOne = new Double[metrics.length];

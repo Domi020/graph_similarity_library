@@ -1,8 +1,7 @@
-import dhbw.graphmetrics.graph.Graph;
 import dhbw.graphmetrics.metrics.GraphMetric;
 import dhbw.graphmetrics.metrics.NodeMetric;
 import dhbw.graphmetrics.metrics.boundary.MetricsCalculation;
-import generators.BarabasiAlbertGenerator;
+import components.generators.BarabasiAlbertGenerator;
 import org.junit.Assert;
 import org.junit.Test;
 

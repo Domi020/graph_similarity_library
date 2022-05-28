@@ -2,9 +2,8 @@ import dhbw.graphmetrics.graph.Graph;
 import dhbw.graphmetrics.graph.SimpleUndirectedAdjacencyListGraph;
 import org.junit.Assert;
 import org.junit.Test;
-import python.PythonGraphGenerator;
+import components.python.PythonGenerator;
 
-import java.io.File;
 import java.util.Arrays;
 
 public class PythonTest {
@@ -19,7 +18,7 @@ public class PythonTest {
         graph.addEdge(2,3, 1);
         graph.addEdge(3,4, 1);
 
-        var graphString = PythonGraphGenerator.generateGraphString(graph, "G");
+        var graphString = PythonGenerator.generateGraphString(graph, "G");
 
         Assert.assertEquals(1 + 5 + 10, graphString.lines().count());
         Assert.assertTrue(graphString.contains("G.add_node(1)"));
@@ -41,7 +40,7 @@ public class PythonTest {
         graph.addEdge(2,3, 1);
         graph.addEdge(3,4, 1);
 
-        var gedString = PythonGraphGenerator.generateGEDTest(graph, graph, false);
+        var gedString = PythonGenerator.generateGEDTest(graph, graph, false);
 
         Assert.assertTrue(gedString.contains("import networkx as nx"));
 //        Assert.assertTrue(gedString.contains("nx.graph_edit_distance(G1, G2)"));
@@ -64,6 +63,6 @@ public class PythonTest {
         graphT.addEdge(5,1, 1);
         graphT.addEdge(2,3, 1);
 
-        var gedString = PythonGraphGenerator.generateGEDTest(graph, graphT, true);
+        var gedString = PythonGenerator.generateGEDTest(graph, graphT, true);
     }
 }

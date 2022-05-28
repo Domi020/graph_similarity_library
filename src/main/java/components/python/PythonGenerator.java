@@ -1,4 +1,4 @@
-package python;
+package components.python;
 
 import dhbw.graphmetrics.graph.Graph;
 import dhbw.graphmetrics.metrics.NodeMetric;
@@ -6,12 +6,13 @@ import dhbw.graphmetrics.metrics.boundary.MetricsCalculation;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
 import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class PythonGraphGenerator {
+/**
+ * Python script generation methods for illustrations and data for paper
+ */
+public class PythonGenerator {
 
     private static AtomicInteger graphNumber = new AtomicInteger(1);
 
@@ -78,6 +79,7 @@ public class PythonGraphGenerator {
         writeScriptToFile(result.toString());
         return result.toString();
     }
+
     public static String generateGraphString(Graph<Integer, Integer> graph, String graphName) {
         StringBuilder graphString = new StringBuilder(String.format("%s = nx.Graph()\n",graphName));
         for (var node : graph.nodes()) {

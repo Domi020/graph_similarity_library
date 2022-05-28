@@ -1,4 +1,4 @@
-package tendancy;
+package components.tendency;
 
 import ch.obermuhlner.math.big.BigDecimalMath;
 
@@ -10,6 +10,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.math.BigDecimal;
 
+/**
+ * Service for calculating tendencies
+ */
 public class CentralTendencies {
 
     public static Double calculateTendency(Double[] values, Tendency tendency) {
@@ -32,14 +35,6 @@ public class CentralTendencies {
     }
 
     private static Double geometricMean(Double[] values) {
-       /* double x = Math.pow(Arrays.stream(values)
-                .map(val -> {
-                    if (val == 0.000000000)
-                        return (val + 0.000000001);
-                    else
-                        return val;
-                })
-                .reduce((val, res) -> val * res).get(), 1.0 / (double) values.length); */
         BigDecimal res = BigDecimal.valueOf(1.0);
         for (Double z : values) {
             if (z == 0.000000000) {
@@ -50,8 +45,6 @@ public class CentralTendencies {
         if (Double.isNaN(res.doubleValue())) return 0.0;
         return BigDecimalMath.pow(res, BigDecimal.valueOf(1.0 / (double) values.length), MathContext.DECIMAL128).
                 doubleValue();
-        //return Double.isNaN(res) ? 0.0 : Math.pow(res, 1.0 / (double) values.length);
-        //return Double.isNaN(x) ? 0.0 : x;
     }
 
     private static Double modus(Double[] values) {

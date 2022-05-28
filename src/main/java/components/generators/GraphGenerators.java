@@ -1,4 +1,4 @@
-package generators;
+package components.generators;
 
 import dhbw.graphmetrics.graph.Graph;
 import org.apache.commons.math3.util.Pair;
@@ -6,6 +6,9 @@ import org.apache.commons.math3.util.Pair;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Graph generate service
+ */
 public class GraphGenerators {
     private GraphGenerators() {}
 

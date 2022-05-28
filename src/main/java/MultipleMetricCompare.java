@@ -1,14 +1,14 @@
-import MetricCalculators.CentralityCalculator;
+import components.MetricCalculators.CentralityCalculator;
 import dhbw.graphmetrics.graph.Graph;
 import dhbw.graphmetrics.metrics.NodeMetric;
-import distance.DistanceMeasure;
-import distance.DistanceMeasures;
-import generators.BarabasiAlbertGenerator;
-import generators.RMATGenerator;
-import python.PythonGraphGenerator;
-import tendancy.CentralTendencies;
-import tendancy.Tendency;
-import util.Normalizer;
+import components.distance.DistanceMeasure;
+import components.distance.DistanceMeasures;
+import components.generators.BarabasiAlbertGenerator;
+import components.generators.RMATGenerator;
+import components.python.PythonGenerator;
+import components.tendency.CentralTendencies;
+import components.tendency.Tendency;
+import components.normalize.Normalizer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -146,7 +146,7 @@ public class MultipleMetricCompare {
         }
         if (printGEDScript) {
             //PythonGraphGenerator.generateGEDTest(x, y, true);
-            PythonGraphGenerator.generateGraphDrawer(x, y, true);
+            PythonGenerator.generateGraphDrawer(x, y, true);
         }
         Double[] meansOne = new Double[metrics.length];
         Double[] meansTwo = new Double[metrics.length];

@@ -1,4 +1,4 @@
-package generators;
+package components.generators;
 
 public enum GraphGeneratorMethod {
     RMAT,

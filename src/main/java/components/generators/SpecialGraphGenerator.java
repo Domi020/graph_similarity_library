@@ -1,4 +1,4 @@
-package generators;
+package components.generators;
 
 import dhbw.graphmetrics.graph.Graph;
 import dhbw.graphmetrics.graph.SimpleUndirectedAdjacencyListGraph;

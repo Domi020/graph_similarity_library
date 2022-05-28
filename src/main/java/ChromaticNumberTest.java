@@ -1,9 +1,8 @@
 import dhbw.graphmetrics.graph.Graph;
 import dhbw.graphmetrics.metrics.GraphMetric;
 import dhbw.graphmetrics.metrics.boundary.MetricsCalculation;
-import generators.GraphGenerators;
-import generators.RMATGenerator;
-import python.PythonGraphGenerator;
+import components.generators.RMATGenerator;
+import components.python.PythonGenerator;
 
 public class ChromaticNumberTest {
 
@@ -13,6 +12,6 @@ public class ChromaticNumberTest {
         Graph<Integer, Integer> x = RMATGenerator.generateWithoutDuplicates(3, 10, 0.9, 0.03, 0.03);
         var res = MetricsCalculation.calculateGraphMetric(x, GraphMetric.CHROMATIC_NUMBER);
         System.out.println(res);
-        PythonGraphGenerator.generateGraphDrawer(x, x, true);
+        PythonGenerator.generateGraphDrawer(x, x, true);
     }
 }

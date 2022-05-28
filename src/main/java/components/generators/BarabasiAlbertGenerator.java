@@ -1,8 +1,7 @@
-package generators;
+package components.generators;
 
 import dhbw.graphmetrics.graph.Graph;
 import dhbw.graphmetrics.graph.SimpleUndirectedAdjacencyListGraph;
-import dhbw.graphmetrics.metrics.GraphMetric;
 import dhbw.graphmetrics.metrics.control.calculation.node.BasicNodeMetricCalculation;
 import org.apache.commons.math3.util.Pair;
 
@@ -10,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Implementation of BA graph generator
+ */
 public class BarabasiAlbertGenerator {
 
     public static Graph<Integer, Integer> generate(int nodes, int edgesPerIteration) {

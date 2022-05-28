@@ -1,4 +1,4 @@
-import compare.GraphCompare;
+/*import compare.GraphCompare;
 import dhbw.graphmetrics.metrics.NodeMetric;
 import distance.DistanceMeasure;
 import generators.GraphGeneratorMethod;
@@ -272,3 +272,4 @@ public class RMATTest {
         test.doDualGraphTest(10);
     }
 }
+*/

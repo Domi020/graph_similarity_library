@@ -1,30 +1,21 @@
-package generators;
+package components.generators;
 
 import dhbw.graphmetrics.graph.Graph;
 import dhbw.graphmetrics.graph.SimpleDirectedAdjacencyListGraph;
 import dhbw.graphmetrics.graph.SimpleUndirectedAdjacencyListGraph;
 
-import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * R-MAT graph generator
+ *
+ * Adapted by implementation from Prof. Dr.-Ing. Olaf Herden
+ */
 public class RMATGenerator {
-    // Parameters
-    //static double alpha = 0.2;
-   // static double beta = 0.2;
-    //static double gamma = 0.3;
-   // static double delta = 0.3;
-
-    //static int k = 4;
-
-
-    //static int M = 100;
-
-    //static String fileOutputName = "C:/TEMP/DSN/" + numberOfNodes + "_" + M + ".TGF";
 
     public static Graph<Integer, Integer> generateUndirected(int k, int M, double alpha, double beta, double gamma) {
         int numberOfEdges = 0;
         int numberOfNodes = (int) Math.pow(2., (double) k);
-        int dx, dy = numberOfNodes / 2;
         Random r = new Random();
         int[][] a = new int[numberOfNodes][numberOfNodes];
 
@@ -124,18 +115,7 @@ public class RMATGenerator {
         }
         return generateGraphFromMatrix(a);
     }
-/*
-    public static void print(){
-        for (int i=0;i<numberOfNodes;i++){
-            for (int j=0;j<numberOfNodes;j++){
-                System.out.print(a[i][j]);
-                System.out.print(" ");
-            }
-            System.out.println();
-        }
-        System.out.println("Number of edges : " + numberOfEdges);
-    }
-*/
+
     private static Graph<Integer, Integer> generateGraphFromMatrix(int[][] a) {
         Graph<Integer, Integer> graph = new SimpleDirectedAdjacencyListGraph<>();
         for(int i = 0; i<a.length; i++) {
@@ -169,47 +149,4 @@ public class RMATGenerator {
     private static boolean isInUpperPart(int x, int y) {
         return x > y;
     }
-/*
-    public static void toTGFFile(String s){
-
-        GetName germanFirstName = new GetName();
-
-        try{
-            // Anlegen eines Eingabe- und eines Ausgabeobjektes
-            FileWriter ausgabeDateiFormat = new FileWriter(s);
-            BufferedWriter ausgabeZeileFormat = new BufferedWriter(ausgabeDateiFormat);
-
-            String actualOutputLine;
-
-            // Knoten rausschreiben
-            for (int i=0;i<numberOfNodes;i++){
-                actualOutputLine = Integer.toString(i);
-                actualOutputLine += " ";
-                actualOutputLine += germanFirstName.getName();
-                ausgabeZeileFormat.write(actualOutputLine);
-                ausgabeZeileFormat.newLine();
-            }
-            // Trenner schreiben
-            ausgabeZeileFormat.write("#");
-            ausgabeZeileFormat.newLine();
-            // Kanten rausschreiben
-            for (int i=0;i<numberOfNodes;i++ ){
-                for (int j=0;j<numberOfNodes;j++){
-                    if ((a[i][j] == 1)){
-                        actualOutputLine = Integer.toString(i) + " " + Integer.toString(j) + " " + "KNOWS";
-                        ausgabeZeileFormat.write(actualOutputLine);
-                        ausgabeZeileFormat.newLine();
-                    }
-                }
-                System.out.println();
-            }
-            ausgabeZeileFormat.close();
-
-        }
-        catch (Throwable e) {;}
-
-        System.out.println("Number of edges : " + numberOfEdges);
-    }
-
- */
 }
