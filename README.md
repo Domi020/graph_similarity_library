@@ -1,4 +1,4 @@
-#Tool für metrikbasierte Graphvergleiche
+# Tool für metrikbasierte Graphvergleiche
 Entwickelt von Dominik Sauerer im Rahmen einer Studienarbeit an der DHBW Stuttgart Campus Horb.
 
 Implementierung des vorgeschlagenen Vergleichsalgorithmus in Java.
