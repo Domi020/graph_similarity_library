@@ -22,7 +22,7 @@ public class DegreePlusClosenessPerformanceMain {
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
         test.setTendency(Tendency.MEAN);
-        test.setPrintGEDScript(false);
+        test.setGenerateGraphVisualizationScript(false);
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.RMAT, GraphGeneratorMethod.RMAT});
 
         int i = 0;
@@ -48,7 +48,7 @@ public class DegreePlusClosenessPerformanceMain {
         test.setMetrics(new NodeMetric[]{NodeMetric.DEGREE_CENTRALITY, NodeMetric.CLOSENESS_CENTRALITY_DISCONNECTED});
         test.setDistanceMeasure(DistanceMeasure.CANBERRA);
         test.setTendency(Tendency.MEAN);
-        test.setPrintGEDScript(false);
+        test.setGenerateGraphVisualizationScript(false);
         test.setGeneratorMethods(new GraphGeneratorMethod[]{GraphGeneratorMethod.BARABASI_ALBERT,
                 GraphGeneratorMethod.RMAT});
 

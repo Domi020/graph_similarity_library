@@ -18,7 +18,7 @@ public class PythonGenerator {
 
     private synchronized static boolean writeScriptToFile(String script) {
         int number = graphNumber.getAndIncrement();
-        var scriptPath = Path.of("res", String.format("GEDScript_%d.py", number));
+        var scriptPath = Path.of("res", String.format("Script_%d.py", number));
         try {
             Files.writeString(scriptPath, script);
             return true;

@@ -35,7 +35,7 @@ public class GraphCompare {
     ConcurrentLinkedQueue<Long> timeList;
 
 
-    private boolean printGEDScript = false;
+    private boolean generateGraphVisualizationScript = false;
 
     public void doDualGraphTest(int amount) {
         double avg = 0.0;
@@ -87,10 +87,8 @@ public class GraphCompare {
         Graph<Integer, Integer> x = GraphGenerators.generateGraph(generatorMethods[0], generatorOptions.get(0));
         Graph<Integer, Integer> y = GraphGenerators.generateGraph(generatorMethods[1], generatorOptions.get(1));
 
-        if (printGEDScript) {
-            //PythonGraphGenerator.generateGEDTest(x, y, true);
+        if (generateGraphVisualizationScript) {
             PythonGenerator.generateGraphDrawer(x, y, true);
-            //PythonGraphGenerator.generateHistogram(y);
         }
         Double[] meansOne = new Double[metrics.length];
         Double[] meansTwo = new Double[metrics.length];
